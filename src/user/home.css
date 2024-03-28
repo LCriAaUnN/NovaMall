@@ -1,75 +1,112 @@
+/* Style for the mall name */
 .mall-name {
-    position: absolute;
-    top: 2px;
-    text-align: center;
-    font-size: 40px;
-    color: #333333;
-    margin: 0;
-  }
-    
-  .search-bar {
-    background-color: #f2f2f2;
-    padding: 10px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-bottom: 20px;
-  }
-  
-  .search-bar input[type='text'] {
-    padding: 5px;
-    margin-right: 10px;
-    border: none;
-    border-radius: 4px;
-  }
-  
-  .search-bar button {
-    padding: 5px 10px;
-    border: none;
-    border-radius: 4px;
-    background-color: #007bff;
-    color: #ffffff;
-    cursor: pointer;
-  }
-  
-  .navbar {
-    background-color: #f2f2f2;
-    padding: 10px;
-    text-align: center;
-  }
-  
-  .navbar ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-  }
-  
-  .navbar ul li {
-    display: inline-block;
-    margin-right: 10px;
-  }
-  
-  .navbar ul li a {
-    text-decoration: none;
-    color: #333333;
-  }
-  
-  .navbar ul li a:hover {
-    color: #007bff;
-  }
+  position: absolute;
+  top: 2px;
+  text-align: center;
+  font-size: 40px;
+  color: #333333;
+  margin: 0;
+}
 
-  .login-button {
-    position: absolute;
-    right: 30px;
-    top: 10px
-  }
+/* Style for the search bar section */
+.search-bar {
+  background-color: #f2f2f2;
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  margin-bottom: 20px;
+}
 
-  .category-button-text {
-    display: inline-block;
-    width: 90px; 
-    height: 10px;
-    line-height: 10px;
-    overflow: hidden;
-    white-space: nowrap;
-    text-overflow: ellipsis;
-  }
+/* Style for the input within the search bar */
+.search-bar input[type='text'] {
+  padding: 5px;
+  margin-right: 10px;
+  border: none;
+  border-radius: 4px;
+}
+
+/* Style for the search button */
+.search-bar button {
+  padding: 5px 10px;
+  border: none;
+  border-radius: 4px;
+  background-color: #007bff;
+  color: #ffffff;
+  cursor: pointer;
+}
+
+/* Style for the navigation bar */
+.navbar {
+  background-color: #f2f2f2;
+  padding: 10px;
+  text-align: center;
+}
+
+/* Style for the unordered list in the navbar */
+.navbar ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* Style for the list items in the navbar */
+.navbar ul li {
+  display: inline-block;
+  margin-right: 10px;
+}
+
+/* Style for the links in the navbar */
+.navbar ul li a {
+  text-decoration: none;
+  color: #333333;
+}
+
+/* Hover effect for the links in the navbar */
+.navbar ul li a:hover {
+  color: #007bff;
+}
+
+/* Style for the login button */
+.login-button {
+  position: absolute;
+  right: 30px;
+  top: 10px;
+}
+
+/* Style for the category button text */
+.category-button-text {
+  display: block;
+  text-align: center; /* Center text horizontally */
+  line-height: 30px; /* Center text vertically by matching the button's height */
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+/* Style for the main dropdown button */
+#dropdown-basic {
+  display: flex;
+  justify-content: center; /* Center children horizontally */
+  align-items: center; /* Center children vertically */
+  height: 40px;
+  width: 120px;
+  padding: 0 15px; /* Adjust padding as needed */
+  background-color: #007bff;
+  color: #ffffff;
+  border: none;
+  border-radius: 4px;
+}
+
+/* Style for the split part of the dropdown button */
+#dropdown-split-basic {
+  display: flex;
+  justify-content: center; /* Center children horizontally */
+  align-items: center; /* Center children vertically */
+  height: 40px;
+  padding: 0 15px; /* Adjust padding as needed */
+  background-color: #007bff;
+  color: #ffffff;
+  border: none;
+  border-radius: 4px;
+}

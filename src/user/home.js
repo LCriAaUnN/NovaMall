@@ -14,24 +14,40 @@ function HomePage() {
   const products = [
     {
       id: 1,
-      title: 'Product 1',
+      title: 'Electronic 1',
       price: 9.99,
       imageUrl: 'https://example.com/product1.jpg',
+      category: 'Electronics', 
     },
     {
       id: 2,
-      title: 'Product 2',
+      title: 'Clothing 1',
       price: 19.99,
       imageUrl: 'https://example.com/product2.jpg',
+      category: 'Clothing', 
     },
-    // Add more products as needed
+    // ... more products ...
   ];
-
-  const [selectedCategory, setSelectedCategory] = useState('Category');
   
-  const handleCategoryChange = (category) => {
-    setSelectedCategory(category);
+
+  // State for the dropdown button
+  const [dropdownCategory, setDropdownCategory] = useState('All');
+
+  // State for the navbar category
+  const [navbarCategory, setNavbarCategory] = useState('All');
+  
+  const handleDropdownCategoryChange = (category) => {
+    setDropdownCategory(category);
   };
+
+  const handleNavbarCategoryChange = (category) => {
+    setNavbarCategory(category);
+  };
+
+  // Use navbarCategory for filtering the products
+  const filteredProducts = navbarCategory === 'All' 
+    ? products 
+    : products.filter(product => product.category === navbarCategory);
 
   return (
     <div>
@@ -46,26 +62,26 @@ function HomePage() {
       <div className="search-bar">
       <Dropdown as={ButtonGroup}>
       <Button variant="success" id="dropdown-basic">
-        <span className="category-button-text">{selectedCategory}</span>
+        <span className="category-button-text">{dropdownCategory}</span>
       </Button>
       <Dropdown.Toggle split variant="success" id="dropdown-split-basic" />
 
       <Dropdown.Menu>
-          <Dropdown.Item href="#" onClick={() => handleCategoryChange('All')}>
-              All
-            </Dropdown.Item>
-            <Dropdown.Item href="#" onClick={() => handleCategoryChange('Electronics')}>
-              Electronics
-            </Dropdown.Item>
-            <Dropdown.Item href="#" onClick={() => handleCategoryChange('Clothing')}>
-              Clothing
-            </Dropdown.Item>
-            <Dropdown.Item href="#" onClick={() => handleCategoryChange('Books')}>
-              Books
-            </Dropdown.Item>
-            <Dropdown.Item href="#" onClick={() => handleCategoryChange('Accessories')}>
-              Accessories
-            </Dropdown.Item>
+        <Dropdown.Item href="#" onClick={() => handleDropdownCategoryChange('All')}>
+          All
+        </Dropdown.Item>
+        <Dropdown.Item href="#" onClick={() => handleDropdownCategoryChange('Electronics')}>
+          Electronics
+        </Dropdown.Item>
+        <Dropdown.Item href="#" onClick={() => handleDropdownCategoryChange('Clothing')}>
+          Clothing
+        </Dropdown.Item>
+        <Dropdown.Item href="#" onClick={() => handleDropdownCategoryChange('Books')}>
+          Books
+        </Dropdown.Item>
+        <Dropdown.Item href="#" onClick={() => handleDropdownCategoryChange('Accessories')}>
+          Accessories
+        </Dropdown.Item>
       </Dropdown.Menu>
       </Dropdown>
         <input type="text" placeholder="Search products" />
@@ -75,10 +91,13 @@ function HomePage() {
         <nav>
           <ul>
             <li>
-              <a href="/category/electronics">Electronics</a>
+              <a href="#" onClick={() => handleNavbarCategoryChange('All')}>All</a>
             </li>
             <li>
-              <a href="/category/clothing">Clothing</a>
+              <a href="#" onClick={() => handleNavbarCategoryChange('Electronics')}>Electronics</a>
+            </li>
+            <li>
+              <a href="#" onClick={() => handleNavbarCategoryChange('Clothing')}>Clothing</a>
             </li>
             {/* Add more category links as needed */}
           </ul>
@@ -87,7 +106,7 @@ function HomePage() {
 
       <Container>
         <Row>
-          {products.map((product) => (
+          {filteredProducts.map((product) => (
             <Col key={product.id} sm={6} md={4} lg={3}>
               <Card>
                 <Card.Img variant="top" src={product.imageUrl} />
