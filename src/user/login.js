@@ -100,7 +100,7 @@ const LoginForm = () => {
             <input type="password" value={password} onChange={handlePasswordChange} />
           </div>
           <div>
-            <button type="submit" className="login-button">Log in</button>
+            <button type="submit" className="login">Log in</button>
           </div>
         </form>
       </div>
