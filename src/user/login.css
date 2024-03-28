@@ -1,0 +1,93 @@
+.name {
+  position: absolute;
+  top: 30px;
+  font-size: 60px;
+  margin-top: 50px;
+  text-align: center;
+}
+
+.login-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-image: url('img/bg.jpg');
+    background-size: cover;
+    background-position: center;
+  }
+  
+  .login-container {
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border-radius: 8px;
+    text-align: center;
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .login-container h2 {
+    margin-bottom: 20px;
+  }
+  
+  .login-container form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .login-container label {
+    margin-bottom: 5px;
+  }
+  
+  .login-container input {
+    padding: 8px;
+    margin-bottom: 10px;
+  }
+  
+  .login-container .toggle-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10px;
+  }
+  
+  .login-container .login-button {
+    padding: 8px 16px;
+    background-color: blue;
+    color: white;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+  }
+  
+  .back-button {
+    padding: 8px 16px;
+    background-color: rgb(196, 196, 196);
+    color: rgb(255, 0, 0);
+    border: none;
+    font-size: 24px;
+    border-radius: 10px;
+    cursor: pointer;
+  }
+
+  .back-button-container {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+  }
+  
+
+  .login-container .toggle-container {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+  }
+  
+  .login-container .toggle-container label {
+    margin-right: 10px;
+  }
+
+
+  
