@@ -12,6 +12,9 @@ import Dropdown from 'react-bootstrap/Dropdown'
 import Carousel from 'react-bootstrap/Carousel';
 import salesImage from './img/year.jpg';
 import salesImage2 from './img/sales_banners.jpg';
+import phone from './img/phone.jpg';
+import clothes from './img/clothes.jpg';
+
 
 
 function HomePage() {
@@ -36,14 +39,14 @@ function HomePage() {
       id: 1,
       title: 'Electronic 1',
       price: 9.99,
-      imageUrl: 'https://example.com/product1.jpg',
+      imageUrl: phone,
       category: 'Electronics', 
     },
     {
       id: 2,
       title: 'Clothing 1',
       price: 19.99,
-      imageUrl: 'https://example.com/product2.jpg',
+      imageUrl: clothes,
       category: 'Clothing', 
     },
     // ... more products ...
@@ -144,23 +147,28 @@ function HomePage() {
       </div>
 
       <Container>
-        <Row>
-          {filteredProducts.map((product) => (
-            <Col key={product.id} sm={6} md={4} lg={3}>
-              <Card>
-                <Card.Img variant="top" src={product.imageUrl} />
-                <Card.Body>
-                  <Card.Title>{product.title}</Card.Title>
-                  <Card.Text>${product.price.toFixed(2)}</Card.Text>
-                  <Link to={`/product/${product.id}`}>
-                    <Button variant="primary">View Details</Button>
-                  </Link>
-                </Card.Body>
-              </Card>
-            </Col>
-          ))}
-        </Row>
-      </Container>
+  <Row>
+    {filteredProducts.map((product) => (
+      <Col key={product.id} sm={6} md={4} lg={3}>
+        <Card className="card-product">
+          {/* Set a class for the image to control its size */}
+          <Card.Img variant="top" src={product.imageUrl} className="card-product-img" />
+          {/* Flex container for the card body */}
+          <Card.Body className="card-product-body">
+            <div>
+              {/* Separate div to contain title and price */}
+              <Card.Title className="card-product-title">{product.title}</Card.Title>
+              <Card.Text className="card-product-price">${product.price.toFixed(2)}</Card.Text>
+            </div>
+            <Link to={`/product/${product.id}`}>
+              <Button variant="primary">View Details</Button>
+            </Link>
+          </Card.Body>
+        </Card>
+      </Col>
+    ))}
+  </Row>
+</Container>
     </div>
   );
 }
