@@ -101,7 +101,7 @@ const navigate = useNavigate();
     : products.filter(product => product.category === navbarCategory);
 
   return (
-    <div>
+    <div className='background'>
       <div className="header">
         <div className="mall-name">NovaMall</div>
         
@@ -160,6 +160,12 @@ const navigate = useNavigate();
             </li>
             <li>
               <a href="#" onClick={() => handleNavbarCategoryChange('Clothing')}>Clothing</a>
+            </li>
+            <li>
+              <a href="#" onClick={() => handleNavbarCategoryChange('Blook')}>Book</a>
+            </li>
+            <li>
+              <a href="#" onClick={() => handleNavbarCategoryChange('Accessories')}>Accessories</a>
             </li>
             {/* Add more category links as needed */}
           </ul>
