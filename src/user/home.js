@@ -9,8 +9,28 @@ import Card from 'react-bootstrap/Card';
 import { Link } from 'react-router-dom';
 import './home.css';
 import Dropdown from 'react-bootstrap/Dropdown'
+import Carousel from 'react-bootstrap/Carousel';
+import salesImage from './img/year.jpg';
+import salesImage2 from './img/sales_banners.jpg';
+
 
 function HomePage() {
+  const events = [
+    {
+      src: salesImage,
+      alt: 'Event 1',
+      caption: 'Event 1 Caption',
+      description: 'Event 1 Description'
+    },
+    {
+      src: salesImage2,
+      alt: 'Event 2',
+      caption: 'Event 2 Caption',
+      description: 'Event 2 Description'
+    },
+    // ... more event items ...
+  ];
+
   const products = [
     {
       id: 1,
@@ -102,6 +122,25 @@ function HomePage() {
             {/* Add more category links as needed */}
           </ul>
         </nav>
+      </div>
+
+      <div className="banner">
+      <Carousel className="custom-carousel">
+  {events.map((event, idx) => (
+    <Carousel.Item key={idx}>
+      <img
+        className="d-block w-100"
+        src={event.src}
+        alt={event.alt}
+      />
+      {/* Separate container for the caption and description */}
+      <div className="carousel-caption-container">
+        <h3>{event.caption}</h3>
+        <p>{event.description}</p>
+      </div>
+    </Carousel.Item>
+  ))}
+</Carousel>
       </div>
 
       <Container>
