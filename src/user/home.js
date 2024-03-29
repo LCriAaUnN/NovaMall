@@ -51,7 +51,34 @@ function HomePage() {
     },
     // ... more products ...
   ];
-  
+
+  // Define your category data
+const categories = [
+  {
+    name: 'Electronics',
+    imageUrl: 'path_to_electronics_image', // replace with your image path
+  },
+  {
+    name: 'Clothing',
+    imageUrl: 'path_to_clothing_image', // replace with your image path
+  },
+  {
+    name: 'Books',
+    imageUrl: 'path_to_books_image', // replace with your image path
+  },
+  {
+    name: 'Accessories',
+    imageUrl: 'path_to_accessories_image', // replace with your image path
+  },
+  // ... other categories
+];
+
+const navigate = useNavigate();
+
+  const handleCategoryClick = (categoryName) => {
+    // Navigate to the specific category page
+    navigate(`/category/${categoryName}`);
+  };  
 
   // State for the dropdown button
   const [dropdownCategory, setDropdownCategory] = useState('All');
@@ -82,7 +109,8 @@ function HomePage() {
           </Link>
         </div>
       </div>
-      <div className="search-bar">
+      <div className="search-bar" style={{ justifyContent: 'center', alignItems: 'center' }}>
+      <div className="search-group">
       <Dropdown as={ButtonGroup}>
       <Button variant="success" id="dropdown-basic">
         <span className="category-button-text">{dropdownCategory}</span>
@@ -109,6 +137,7 @@ function HomePage() {
       </Dropdown>
         <input type="text" placeholder="Search products" />
         <button className="search-button">Search</button>
+        </div>
       </div>
       <div className="navbar">
         <nav>
@@ -128,23 +157,41 @@ function HomePage() {
       </div>
 
       <div className="banner">
-      <Carousel className="custom-carousel">
-  {events.map((event, idx) => (
-    <Carousel.Item key={idx}>
-      <img
-        className="d-block w-100"
-        src={event.src}
-        alt={event.alt}
-      />
-      {/* Separate container for the caption and description */}
-      <div className="carousel-caption-container">
-        <h3>{event.caption}</h3>
-        <p>{event.description}</p>
+        <Carousel className="custom-carousel">
+          {events.map((event, idx) => (
+            <Carousel.Item key={idx}>
+              <img
+                className="d-block w-100"
+                src={event.src}
+                alt={event.alt}
+              />
+            {/* Separate container for the caption and description */}
+            <div className="carousel-caption-container">
+              <h3>{event.caption}</h3>
+              <p>{event.description}</p>
+            </div>
+        </Carousel.Item>
+          ))}
+          </Carousel>
       </div>
-    </Carousel.Item>
-  ))}
-</Carousel>
-      </div>
+
+      <div className="category-section">
+  <Row>
+    {categories.map((category, index) => (
+      <Col key={index} sm={6} md={4} lg={3}>
+        <div
+          className="category-block"
+          style={{ backgroundImage: `url(${category.imageUrl})` }}
+          onClick={() => handleCategoryClick(category.name)}
+        >
+          <div className="category-block-overlay">
+            <h2 className="category-block-title">{category.name}</h2>
+          </div>
+        </div>
+      </Col>
+    ))}
+  </Row>
+</div>
 
       <Container>
   <Row>
