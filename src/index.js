@@ -11,6 +11,8 @@ import NavDropdown from 'react-bootstrap/NavDropdown';
 import Login from './user/login';
 import Home from './user/home';
 import UserInfo from './user/userinfo';
+import CartPage from './user/cart';
+import WishlistPage from  './user/wishlist'
 import { MapContainer, TileLayer, Marker } from 'react-leaflet';
 
 import {
@@ -31,7 +33,8 @@ function App(props) {
           <Route path="/home" element={<HomePage />}/>
           <Route path="/login" element={<Login />}/>
           <Route path="/user" element={<UserInfo />}/>
-          
+          <Route path="/cart" element={<CartPage />} />
+          <Route path="/wishlist" element={<WishlistPage />} />
 
           
           <Route path="*" element={<NoMatch />} />

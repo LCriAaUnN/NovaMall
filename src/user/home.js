@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import ButtonGroup from 'react-bootstrap/ButtonGroup';
 import Button from 'react-bootstrap/Button';
@@ -10,7 +10,7 @@ import { Link } from 'react-router-dom';
 import './home.css';
 import Dropdown from 'react-bootstrap/Dropdown'
 import Carousel from 'react-bootstrap/Carousel';
-import { FaHeart, FaShoppingCart } from 'react-icons/fa';
+import { FaHeart, FaSearch, FaShoppingCart } from 'react-icons/fa';
 import salesImage from './img/year.jpg';
 import salesImage2 from './img/sales_banners.jpg';
 import phone from './img/phone.jpg';
@@ -32,6 +32,30 @@ function HomePage() {
       caption: 'Event 2 Caption',
       description: 'Event 2 Description'
     },
+    {
+      src: salesImage2,
+      alt: 'Event 2',
+      caption: 'Event 2 Caption',
+      description: 'Event 2 Description'
+    },
+    {
+      src: salesImage2,
+      alt: 'Event 3',
+      caption: 'Event 3 Caption',
+      description: 'Event 3 Description'
+    },
+    {
+      src: salesImage2,
+      alt: 'Event 4',
+      caption: 'Event 4 Caption',
+      description: 'Event 4 Description'
+    },
+    {
+      src: salesImage2,
+      alt: 'Event 5',
+      caption: 'Event 5 Caption',
+      description: 'Event 5 Description'
+    },
     // ... more event items ...
   ];
 
@@ -47,6 +71,27 @@ function HomePage() {
       id: 2,
       title: 'Clothing 1',
       price: 19.99,
+      imageUrl: clothes,
+      category: 'Clothing', 
+    },
+    {
+      id: 3,
+      title: 'Clothing 2',
+      price: 29.99,
+      imageUrl: clothes,
+      category: 'Clothing', 
+    },
+    {
+      id: 4,
+      title: 'Clothing 3',
+      price: 39.99,
+      imageUrl: clothes,
+      category: 'Clothing', 
+    },
+    {
+      id: 5,
+      title: 'Clothing 4',
+      price: 49.99,
       imageUrl: clothes,
       category: 'Clothing', 
     },
@@ -113,6 +158,7 @@ const navigate = useNavigate();
       </div>
       <div className="search-bar" style={{ justifyContent: 'center', alignItems: 'center' }}>
       <div className="search-group">
+      <div className='input-wrapper'>
       <Dropdown as={ButtonGroup}>
       <Button variant="success" id="dropdown-basic">
         <span className="category-button-text">{dropdownCategory}</span>
@@ -137,9 +183,14 @@ const navigate = useNavigate();
         </Dropdown.Item>
       </Dropdown.Menu>
       </Dropdown>
+      
+        <FaSearch id='search-icon'/>
         <input type="text" placeholder="Search products" />
         <button className="search-button">Search</button>
         </div>
+        </div>
+
+
         <div className="wishlist-cart-icons">
             <Link to="/wishlist" className="icon-link">
               <FaHeart className="icon" />
