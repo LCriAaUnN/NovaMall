@@ -10,6 +10,7 @@ import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import Login from './user/login';
 import Home from './user/home';
+import UserInfo from './user/userinfo';
 import { MapContainer, TileLayer, Marker } from 'react-leaflet';
 
 import {
@@ -29,7 +30,7 @@ function App(props) {
           <Route path="/" element={<Navigate replace to="/home" />} />
           <Route path="/home" element={<HomePage />}/>
           <Route path="/login" element={<Login />}/>
-          
+          <Route path="/user" element={<UserInfo />}/>
           
 
           

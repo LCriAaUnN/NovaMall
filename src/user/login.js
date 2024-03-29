@@ -100,7 +100,9 @@ const LoginForm = () => {
             <input type="password" value={password} onChange={handlePasswordChange} />
           </div>
           <div>
+          <Link to="/user" >
             <button type="submit" className="login">Log in</button>
+            </Link>
           </div>
         </form>
       </div>

@@ -1,0 +1,137 @@
+
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    background-image: url('img/bg.jpg');
+    background-size: cover;
+    background-position: center;
+    overflow-x: hidden;
+  }
+  
+  .main-layout {
+    display: flex;
+    flex-direction: row;
+    height: 100vh;
+    
+  }
+  
+  .main-header {
+    background-color: #333;
+    color: #fff;
+    padding: 10px 20px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000; /* Ensure the header is always on top */
+    width: 100%; /* Adjust the width as needed or use a specific value */
+    box-sizing: border-box;
+  }
+  
+  .sidebar {
+    background-color: #f4f4f4;
+    opacity: 0.8;
+    padding: 15px;
+    width: 200px;
+    position: fixed;
+    top: 70px; /* Adjust this value based on the actual height of the header */
+    bottom: 0;
+    overflow-y: auto; /* Enables scrolling if content is too long */
+  }
+  
+  .sidebar ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .sidebar ul li button {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 5px;
+    cursor: pointer;
+    border: none;
+    background-color: #ddd;
+    transition: background-color 0.3s;
+  }
+  
+  .sidebar ul li button:hover {
+    background-color: #ccc;
+  }
+  
+  .content {
+    flex-grow: 1;
+    opacity: 0.9;
+    padding: 20px;
+    margin-left: 200px; /* Equal to the sidebar width */
+    background-color: #eaeaea;
+    height: calc(100vh - 70px); /* Adjust based on header height */
+    overflow-y: auto; /* Enables scrolling for the content */
+    position: relative;
+    left: 200px; /* Equal to the sidebar width */
+    top: 70px; /* Adjust this value based on the actual height of the header */
+    box-sizing: border-box;
+  }
+  
+  @media (min-width: 768px) {
+    .main-header {
+      width: 200px; /* Fixed size for larger screens */
+    }
+
+    .content {
+      margin-left: 300px; /* Adjust if sidebar width changes */
+      left: 10px; /* Adjust if sidebar width changes */
+    }
+  }
+
+  .list-item {
+    display: flex;
+    margin-bottom: 10px;
+    padding: 10px;
+    background: #fff;
+    border-radius: 4px;
+    justify-content: flex-start;
+  }
+  
+  .item-image {
+    width: 50px;
+    height: 50px;
+    margin-right: 10px; /* Keep some space between the image and the name */
+  }
+  
+  .item-name {
+    flex-grow: 1;
+    margin-right: auto; /* This will push everything else to the right */
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  
+  
+  .item-price {
+    margin-right: 10px; /* Space between the price and the button */
+  }
+  
+  .view-button {
+    padding: 5px 10px;
+    background-color: #0066ff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .view-button:hover {
+    background-color: #0051cc;
+  }
+
+  .list-item > .item-name {
+    /* Your styles for name */
+    margin-right: auto; /* This will push the price and button to the right */
+  }
+  
+  .item-details {
+    display: flex;
+    align-items: center;
+    /* No need for margin-left: auto here as it's taken care of by the item-name margin */
+  }
