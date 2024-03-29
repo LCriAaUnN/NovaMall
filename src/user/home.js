@@ -10,6 +10,7 @@ import { Link } from 'react-router-dom';
 import './home.css';
 import Dropdown from 'react-bootstrap/Dropdown'
 import Carousel from 'react-bootstrap/Carousel';
+import { FaHeart, FaShoppingCart } from 'react-icons/fa';
 import salesImage from './img/year.jpg';
 import salesImage2 from './img/sales_banners.jpg';
 import phone from './img/phone.jpg';
@@ -103,6 +104,7 @@ const navigate = useNavigate();
     <div>
       <div className="header">
         <div className="mall-name">NovaMall</div>
+        
         <div className="login-button">
           <Link to="/login">
             <button>Login</button>
@@ -138,6 +140,14 @@ const navigate = useNavigate();
         <input type="text" placeholder="Search products" />
         <button className="search-button">Search</button>
         </div>
+        <div className="wishlist-cart-icons">
+            <Link to="/wishlist" className="icon-link">
+              <FaHeart className="icon" />
+            </Link>
+            <Link to="/cart" className="icon-link">
+              <FaShoppingCart className="icon" />
+            </Link>
+          </div>
       </div>
       <div className="navbar">
         <nav>
