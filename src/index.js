@@ -13,7 +13,12 @@ import Home from './user/home';
 import UserInfo from './user/userinfo';
 import CartPage from './user/cart';
 import WishlistPage from  './user/wishlist'
+import Admin from './admin/admin'
+import ProductDetail from './product/ProductDetail'; 
+import Signup from './user/signup';
 import { MapContainer, TileLayer, Marker } from 'react-leaflet';
+
+
 
 import {
   Navigate
@@ -31,10 +36,15 @@ function App(props) {
         <Routes>
           <Route path="/" element={<Navigate replace to="/home" />} />
           <Route path="/home" element={<HomePage />}/>
-          <Route path="/login" element={<Login />}/>
+          <Route path="/login" element={<Login />} />
+          <Route path="/signup" element={<Signup />} />
           <Route path="/user" element={<UserInfo />}/>
           <Route path="/cart" element={<CartPage />} />
           <Route path="/wishlist" element={<WishlistPage />} />
+          <Route path="/admin" element={<Admin />} />
+          <Route path="/product/:id" element={<ProductDetail />} />
+          
+          
 
           
           <Route path="*" element={<NoMatch />} />

@@ -1,0 +1,149 @@
+  .product-detail-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-start;
+    background-color: #ffffff; 
+    flex-direction: column; 
+    align-items: center; 
+  }
+  
+  .product-image {
+    flex-basis: 40%;
+    max-width: 40%;
+    padding: 10px;
+  }
+  
+  .product-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  }
+  
+  .product-info {
+    flex-basis: 60%;
+    max-width: 60%;
+    padding: 10px;
+  }
+  
+  .product-title {
+    font-size: 24px;
+    margin-bottom: 10px;
+    color: #333;
+  }
+  
+  .product-price {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: #e64946;
+  }
+  
+  .product-category {
+    font-size: 18px;
+    margin-bottom: 5px;
+    color: #666;
+  }
+  
+  .product-description {
+    font-size: 15px;
+    margin-bottom: 10px;
+    color: #444;
+    line-height: 1.5;
+    white-space: pre-wrap; 
+  }
+  
+  .product-stock {
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: #318643;
+  }
+  
+  .button-buy {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .button-buy:hover {
+    background-color: #0056b3;
+  }
+  
+  .carousel-item {
+    border-radius: 15px; 
+    height: 500px;
+    width: 100%; 
+    max-width: 1200px; 
+  }
+  
+  .carousel-item img {
+    border-radius: 15px; 
+    height: 100%;
+    width: 100%; 
+    object-fit: cover; 
+  }
+
+  .carousel-control-prev-icon,
+  .carousel-control-next-icon {
+    filter: grayscale(100%) brightness(50%); 
+  }
+
+  
+.button-wishlist,
+.button-cart {
+  display: inline-block;
+  padding: 10px 20px;
+  margin: 5px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.button-wishlist {
+  background-color: #fff;
+  border: 1px solid #000;
+}
+
+.button-wishlist.active {
+  background-color: #000;
+  color: #fff;
+}
+
+.button-cart {
+  background-color: #000;
+  color: #fff;
+  border: none;
+}
+
+.button-cart:hover {
+  background-color: #333;
+}
+
+
+.alert-box {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #00000070;
+    color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    z-index: 1000;
+  }
+  
+  .alert-box.active {
+    display: block; 
+  }
+
+  

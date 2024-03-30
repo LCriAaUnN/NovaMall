@@ -11,29 +11,28 @@ import './home.css';
 import Dropdown from 'react-bootstrap/Dropdown'
 import Carousel from 'react-bootstrap/Carousel';
 import { FaHeart, FaSearch, FaShoppingCart } from 'react-icons/fa';
-import salesImage from './img/year.jpg';
+import salesImage from './img/easter5.webp';
 import salesImage2 from './img/sales_banners.jpg';
+import salesImage3 from './img/easter4.webp';
 import phone from './img/phone.jpg';
 import clothes from './img/clothes.jpg';
+import clothesImage1 from './img/clothes1.jpg';
+import book from './img/book.jpg';
+import hat from './img/hat3.jpg';
+
 
 
 
 function HomePage() {
   const events = [
     {
-      src: salesImage,
+      src: salesImage3,
       alt: 'Event 1',
-      caption: 'Event 1 Caption',
-      description: 'Event 1 Description'
+      caption: 'Easter Sale!',
+      description: 'Extra 20% off daily Easter Deals with code EASTER20'
     },
     {
-      src: salesImage2,
-      alt: 'Event 2',
-      caption: 'Event 2 Caption',
-      description: 'Event 2 Description'
-    },
-    {
-      src: salesImage2,
+      src: salesImage,
       alt: 'Event 2',
       caption: 'Event 2 Caption',
       description: 'Event 2 Description'
@@ -41,60 +40,49 @@ function HomePage() {
     {
       src: salesImage2,
       alt: 'Event 3',
-      caption: 'Event 3 Caption',
-      description: 'Event 3 Description'
+      caption: 'Event 2 Caption',
+      description: 'Event 2 Description'
     },
-    {
-      src: salesImage2,
-      alt: 'Event 4',
-      caption: 'Event 4 Caption',
-      description: 'Event 4 Description'
-    },
-    {
-      src: salesImage2,
-      alt: 'Event 5',
-      caption: 'Event 5 Caption',
-      description: 'Event 5 Description'
-    },
-    // ... more event items ...
+
+
   ];
 
   const products = [
     {
       id: 1,
-      title: 'Electronic 1',
-      price: 9.99,
+      title: 'iPhone 15 256G',
+      price: 6999,
       imageUrl: phone,
       category: 'Electronics', 
     },
     {
       id: 2,
-      title: 'Clothing 1',
-      price: 19.99,
-      imageUrl: clothes,
+      title: 'Dorothee Schumacher Midi dress',
+      price: 3000,
+      imageUrl: clothesImage1,
       category: 'Clothing', 
     },
     {
       id: 3,
-      title: 'Clothing 2',
-      price: 29.99,
-      imageUrl: clothes,
+      title: 'The Black Book of Colors',
+      price: 208,
+      imageUrl: book,
       category: 'Clothing', 
     },
     {
       id: 4,
-      title: 'Clothing 3',
-      price: 39.99,
-      imageUrl: clothes,
-      category: 'Clothing', 
+      title: 'Calvin Klein Denim Bucket Hat',
+      price: 490,
+      imageUrl: hat,
+      category: 'Accessories', 
     },
-    {
-      id: 5,
-      title: 'Clothing 4',
-      price: 49.99,
-      imageUrl: clothes,
-      category: 'Clothing', 
-    },
+    //{
+    //  id: 5,
+    //  title: 'Clothing 4',
+    //  price: 49.99,
+    //  imageUrl: clothes,
+    //  category: 'Clothing', 
+    //},
     // ... more products ...
   ];
 
@@ -148,15 +136,9 @@ const navigate = useNavigate();
   return (
     <div className='background'>
       <div className="header">
-        <div className="mall-name">NovaMall</div>
+        <div className="mall-logo"></div>
         
-        <div className="login-button">
-          <Link to="/login">
-            <button>Login</button>
-          </Link>
-        </div>
-      </div>
-      <div className="search-bar" style={{ justifyContent: 'center', alignItems: 'center' }}>
+    
       <div className="search-group">
       <div className='input-wrapper'>
       <Dropdown as={ButtonGroup}>
@@ -186,10 +168,9 @@ const navigate = useNavigate();
       
         <FaSearch id='search-icon'/>
         <input type="text" placeholder="Search products" />
-        <button className="search-button">Search</button>
+        <button style={{ backgroundColor: '#080808' }}>Search</button>
         </div>
         </div>
-
 
         <div className="wishlist-cart-icons">
             <Link to="/wishlist" className="icon-link">
@@ -222,6 +203,12 @@ const navigate = useNavigate();
           </ul>
         </nav>
       </div>
+
+      <div className="login-button">
+          <Link to="/login">
+          <button style={{ backgroundColor: '#080808' }}>Login</button>
+          </Link>
+        </div>
 
       <div className="banner">
         <Carousel className="custom-carousel">
@@ -275,7 +262,7 @@ const navigate = useNavigate();
               <Card.Text className="card-product-price">${product.price.toFixed(2)}</Card.Text>
             </div>
             <Link to={`/product/${product.id}`}>
-              <Button variant="primary">View Details</Button>
+              <Button style={{ backgroundColor: '#080808' }}>View Details</Button>
             </Link>
           </Card.Body>
         </Card>

@@ -51,11 +51,13 @@ function CartPage() {
                   <div className="cart-total">
                       Total: ${calculateTotal(cartItems)}
                   </div>
+                  <button className="checkout-button">Checkout</button>
               </div>
           ) : (
               <p>Your cart is empty.</p>
           )}
       </div></>
+      
   );
 }
 

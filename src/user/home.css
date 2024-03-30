@@ -1,32 +1,46 @@
 .background {
-  background-image: url('img/bg.jpg');
-    background-size: cover;
-    background-position: center;
+  /* background-image: url('img/bg.jpg');*/
+  background-size: cover;
+  background-position: center;
+  background-color: #FFFFFF; /* 背景设置为纯白色 */
+  background-image: url('./img/bg.jpg');
 }
 
-.mall-name {
+/*.mall-name {
   position: absolute;
   top: 2px;
   text-align: center;
   font-size: 40px;
   color: #333333;
   margin: 0;
+}*/
+
+.mall-name {
+  /* position, top, text-align, font-size, color, margin 保持不变 */
+  background-image: url('./img/logo.jpg'); /* 替换为你的 logo 图片路径 */
+  background-size: contain; /* 使 logo 适应 div 大小 */
+  background-repeat: no-repeat;
+  background-position: center; /* 中心对齐 */
+  height: 60px; /* 根据实际 logo 大小调整 */
+  width: 120px; /* 根据实际 logo 大小调整 */
 }
 
 .search-bar {
-  background-color: #f2f2f2;
+  background-color: #080808;
   padding: 10px;
   display: flex;
-  justify-content: center;
+  /*justify-content: center;*/
+  justify-content: space-between;
   align-items: center;
   margin-bottom: 20px;
 }
 
 .search-group {
+  flex-grow: 1;
   display: flex;
   justify-content: center;
   align-items: center;
-  
+  margin: 0 20px; /* 根据需要调整，为搜索栏和 logo/login 按钮之间提供空间 */
 }
 
 .search-bar input[type='text'] {
@@ -40,7 +54,7 @@
   padding: 5px 10px;
   border: none;
   border-radius: 4px;
-  background-color: #007bff;
+  background-color: #cfd9e3 !important;
   color: #ffffff;
   cursor: pointer;
 }
@@ -68,13 +82,15 @@
 }
 
 .navbar ul li a:hover {
-  color: #007bff;
+  color: #0b0b0b;
 }
 
 .login-button {
   position: absolute;
   right: 30px;
   top: 10px;
+  flex-shrink: 0;
+  color: #fbf9f9;
 }
 
 .category-button-text {
@@ -200,19 +216,14 @@
   font-size: 24px; /* Adjust icon size */
 }
 
-/* Adjust the search bar layout to accommodate the icons */
-.search-bar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  /* ... other styles ... */
-}
 
 /* Style for wishlist and cart icons container */
 .wishlist-cart-icons {
   display: flex;
   align-items: center;
+  margin-right: 100px;
 }
+
 
 .parent-container { /* Replace with the actual parent class or element */
   display: flex;
@@ -224,3 +235,32 @@
   background-color: white;
   border-radius: 10px;
 }
+
+.header {
+  background-color: #FFFFFF;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+}
+
+.mall-logo {
+  background-image: url('./img/logo.jpg');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 60px; /* 根据实际 logo 大小调整 */
+  width: 120px; /* 根据实际 logo 大小调整 */
+  flex-shrink: 0; /* 防止 logo 在 flex 布局中缩小 */
+}
+
+
+
+/* 搜索框和按钮的样式可能需要细微调整以适应新的布局 */
+
+
+.icons-login-container {
+  display: flex;
+  align-items: center; /* 确保图标和登录按钮在同一行并垂直居中 */
+}
+

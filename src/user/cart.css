@@ -6,6 +6,7 @@
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     border-radius: 5px;
     background-color: #ddd;
+    background-image: url('./img/bg.jpg');
   }
 
   .cart-table tbody {
@@ -66,4 +67,22 @@
   
   .back-to-home:hover {
     background-color: #3069c6;
+  }
+
+  .checkout-button {
+    background-color: #4CAF50; 
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: block; 
+    font-size: 16px;
+    margin: 20px 0; 
+    cursor: pointer;
+    border-radius: 4px;
+  }
+  
+  .checkout-button:hover {
+    background-color: #45a049; 
   }

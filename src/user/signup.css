@@ -1,0 +1,145 @@
+/*.name {
+  position: absolute;
+  top: 30px;
+  font-size: 60px;
+  margin-top: 50px;
+  text-align: center;
+}*/
+
+.name {
+    position: absolute;
+    top: -20px;
+    /* 调整为适合你的 logo 图片的尺寸 */
+    width: 150px; /* 示例宽度，根据需要调整 */
+    height: auto; /* 高度自动调整以保持图片比例 */
+    margin-top: 50px;
+    text-align: center;
+  }
+  
+  .signup-page {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      /*background-image: url('img/bg.jpg');*/
+      background-color: #FFFFFF;
+      background-size: cover;
+      background-position: center;
+      background-image: url('./img/bg.jpg');
+    }
+    
+    .signup-container {
+      padding: 20px;
+      background-color: rgba(0, 0, 0, 0.847);
+      color: white;
+      border-radius: 30px;
+      text-align: center;
+      margin-top: 130px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      width: 350px;
+    }
+    
+    .signup-container h2 {
+      margin-bottom: 20px;
+    }
+    
+    .signup-container form {
+      display: flex;
+      flex-direction: column;
+      width: 80%;
+    }
+    
+    .signup-container label {
+      margin-bottom: 5px;
+      width: 100%;
+    }
+    
+    .signup-container input {
+      padding: 8px;
+      margin-bottom: 10px;
+      width: 100%;
+    }
+    
+    .signup-container .toggle-container {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 10px;
+    }
+    
+    .signup-container .signup {
+      padding: 8px 16px;
+      background-color: blue;
+      color: white;
+      border: none;
+      border-radius: 20px;
+      cursor: pointer;
+    }
+    
+    .back-button {
+      padding: 8px 16px;
+      background-color: rgb(255, 252, 252);
+      color: rgb(14, 13, 13);
+      border: none;
+      font-size: 24px;
+      border-radius: 10px;
+      cursor: pointer;
+    }
+  
+    .back-button-container {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+    }
+    
+  
+    .signup-container .toggle-container {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 10px;
+    }
+    
+    .signup-container .toggle-container label {
+      margin-right: 10px;
+    }
+  
+    .action-buttons {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    
+    .signup-link .signup {
+      padding: 8px 16px;
+      background-color: green;
+      color: white;
+      border: none;
+      border-radius: 20px;
+      cursor: pointer;
+      margin-left: 10px; /* 如果需要，调整间距 */
+    }
+
+    .message-box {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: white;
+        color: black;
+        padding: 20px;
+        border-radius: 10px;
+        text-align: center;
+        z-index: 1000;
+      }
+      
+      .success {
+        border: 2px solid green;
+      }
+      
+      .failure {
+        border: 2px solid red;
+      }
+
+      
