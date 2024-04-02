@@ -13,3 +13,4 @@ class Order(models.Model):
     )
     status = models.SmallIntegerField(choices=status_choices, default=0)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
+
