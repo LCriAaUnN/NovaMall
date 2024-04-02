@@ -1,8 +1,7 @@
 from django.db import models
-
+from User.models import User
 # Create your models here.
 class Cart(models.Model):
-    user_id = models.IntegerField()
     product_id = models.IntegerField()
-    count = models.IntegerField()
-    createTime = models.DateTimeField()
+    price = models.FloatField()
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
