@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'ShopPage.apps.ShoppageConfig',
     'ShoppingCart.apps.ShoppingcartConfig',
     'Order.apps.OrderConfig',
+    'rest_framework',
 ]
 
 MIDDLEWARE = [

@@ -1,6 +1,8 @@
 ## Pre-Install
 
 - django
+- djangorestframework
+- django http
 - mysql-client
     https://pypi.org/project/mysqlclient/
 
