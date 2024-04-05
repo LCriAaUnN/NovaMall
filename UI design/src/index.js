@@ -1,7 +1,7 @@
 import ReactDOM from "react-dom/client";
 import React from 'react';
 import { useEffect, useState } from 'react';
-import { BrowserRouter, Routes, Route, Link, Navigation} from 'react-router-dom';
+import { BrowserRouter, Routes, Route, Link, Navigate} from 'react-router-dom';
 import { useMatch, useParams, useLocation } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 import Container from 'react-bootstrap/Container';
@@ -17,6 +17,7 @@ import Admin from './admin/admin'
 import ProductDetail from './product/ProductDetail'; 
 import Signup from './user/signup';
 import { MapContainer, TileLayer, Marker } from 'react-leaflet';
+import ProtectedRoute from "./components/ProtectedRoute";
 
 function Logout() {
   localStorage.clear()
@@ -28,9 +29,9 @@ function RegisterAndLogout() {
   return <Register />
 }
 
-import {
-  Navigate
-} from 'react-router';
+// import {
+//   Navigate
+// } from 'react-router';
 import HomePage from "./user/home";
 
 const user = {
@@ -46,14 +47,13 @@ function App(props) {
           <Route path="/home" element={<HomePage />}/>
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
-          <Route path="/user" element={<UserInfo />}/>
-          <Route path="/cart" element={<CartPage />} />
-          <Route path="/wishlist" element={<WishlistPage />} />
+          <Route path="/user" element={<ProtectedRoute><UserInfo/></ProtectedRoute>} />
+          <Route path="/cart" element={<ProtectedRoute><CartPage /></ProtectedRoute>} />
+          <Route path="/wishlist" element={<ProtectedRoute><WishlistPage /></ProtectedRoute>} />
           <Route path="/admin" element={<Admin />} />
           <Route path="/product/:id" element={<ProductDetail />} />
+          <Route path="/logout" element={<Logout />} />
           
-          
-
           
           <Route path="*" element={<NoMatch />} />
         </Routes>
@@ -66,8 +66,7 @@ function NoMatch() {
   return (
     <div>
       <h3>
-        No match for:
-        <br></br>
+        <h1>404 Not Found</h1>
         <code>{location.pathname}</code>
       </h3>
     </div>

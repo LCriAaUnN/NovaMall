@@ -1,12 +1,16 @@
 import './login.css'; 
+import api from '../api';
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import logoImage from './img/logo.jpg';
+//import LoadingIndicator from "./LoadingIndicator";
+import { ACCESS_TOKEN, REFRESH_TOKEN } from "../constants";
 
-const LoginForm = () => {
+const LoginForm = ({ route = "token/" , method = "login"}) => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
+  const [loading, setLoading] = useState(false);
   const [userType, setUserType] = useState('user');
   const [showMessage, setShowMessage] = useState(false);
   const [messageContent, setMessageContent] = useState('');
@@ -33,6 +37,7 @@ const LoginForm = () => {
   };
 
   const handleFormSubmit = async (event) => {
+    setLoading(true)
     event.preventDefault();
 
     // Check if the entered username and password match the admin credentials
@@ -45,25 +50,17 @@ const LoginForm = () => {
         navigate('/user');
       } else {
         try {
-          const response = await fetch('http://localhost:8080/login', {
-            method: 'POST',
-            headers: {
-              'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({ username, password }), // Modify the body to match the expected keys in the server code
-          });
-
-          if (response.ok) {
-            navigate('/user');
-          } else {
-            displayMessage('failure', 'Login failed. Please check your Username or Password and try again.');
-          }
+          console.log("Route:", route);
+          const res = await api.post(route, { username, password })
+          localStorage.setItem(ACCESS_TOKEN, res.data.access);
+          localStorage.setItem(REFRESH_TOKEN, res.data.refresh);
+          navigate("/user")
         } catch (error) {
           displayMessage('failure', 'Login failed. Please check your Username or Password and try again.');
         }
       }
     } else {
-      displayMessage('failure', 'Login failed. Please check your Username or Password and try again.');
+      
     }
   };
 

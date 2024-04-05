@@ -11,11 +11,10 @@ function ProtectedRoute({ children }) {
     useEffect(() => {
         auth().catch(() => setIsAuthorized(false))
     }, [])
-
     const refreshToken = async () => {
         const refreshToken = localStorage.getItem(REFRESH_TOKEN);
         try {
-            const res = await api.post("/api/token/refresh/", {
+            const res = await api.post("/token/refresh/", {
                 refresh: refreshToken,
             });
             if (res.status === 200) {
@@ -54,4 +53,4 @@ function ProtectedRoute({ children }) {
     return isAuthorized ? children : <Navigate to="/login" />;
 }
 
-export default ProtectedRoute;  
+export default ProtectedRoute;
