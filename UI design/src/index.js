@@ -1,7 +1,7 @@
 import ReactDOM from "react-dom/client";
 import React from 'react';
 import { useEffect, useState } from 'react';
-import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, Link, Navigation} from 'react-router-dom';
 import { useMatch, useParams, useLocation } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 import Container from 'react-bootstrap/Container';
@@ -18,7 +18,15 @@ import ProductDetail from './product/ProductDetail';
 import Signup from './user/signup';
 import { MapContainer, TileLayer, Marker } from 'react-leaflet';
 
+function Logout() {
+  localStorage.clear()
+  return <Navigate to="/login" />
+}
 
+function RegisterAndLogout() {
+  localStorage.clear()
+  return <Register />
+}
 
 import {
   Navigate

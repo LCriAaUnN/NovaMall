@@ -4,4 +4,4 @@ from User.models import User
 class Cart(models.Model):
     product_id = models.IntegerField()
     price = models.FloatField()
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name="carts")

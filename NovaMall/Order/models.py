@@ -12,5 +12,5 @@ class Order(models.Model):
         (3, "Delivered"),
     )
     status = models.SmallIntegerField(choices=status_choices, default=0)
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name="orders")
 
