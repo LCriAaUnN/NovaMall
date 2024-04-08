@@ -6,12 +6,13 @@ import { Link } from 'react-router-dom';
 import logoImage from './img/logo.jpg';
 //import LoadingIndicator from "./LoadingIndicator";
 import { ACCESS_TOKEN, REFRESH_TOKEN } from "../constants";
+import Admin from '../admin/admin';
 
-const LoginForm = ({ route = "token/" , method = "login"}) => {
+const AdminLogin = ({ route = "token/" , method = "login"}) => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [loading, setLoading] = useState(false);
-  const [userType, setUserType] = useState('user');
+  const [userType, setUserType] = useState('admin');
   const [showMessage, setShowMessage] = useState(false);
   const [messageContent, setMessageContent] = useState('');
   const [messageType, setMessageType] = useState(''); // 'success' or 'failure'
@@ -22,8 +23,8 @@ const LoginForm = ({ route = "token/" , method = "login"}) => {
   // };
   const handleUserTypeChange = (event) => {
     setUserType(event.target.value);
-    if (event.target.value === 'admin') {
-      navigate('/admin_login'); // 添加这行代码以在选择admin时导航
+    if (event.target.value === 'user') {
+      navigate('/login'); // 添加这行代码以在选择user时导航
     }
   };
 
@@ -123,4 +124,4 @@ const LoginForm = ({ route = "token/" , method = "login"}) => {
   );
 };
 
-export default LoginForm;
+export default AdminLogin;

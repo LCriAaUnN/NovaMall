@@ -18,6 +18,7 @@ import ProductDetail from './product/ProductDetail';
 import Signup from './user/signup';
 import { MapContainer, TileLayer, Marker } from 'react-leaflet';
 import ProtectedRoute from "./components/ProtectedRoute";
+import AdminLogin from './user/login_admin';
 
 function Logout() {
   localStorage.clear()
@@ -53,6 +54,7 @@ function App(props) {
           <Route path="/admin" element={<Admin />} />
           <Route path="/product/:id" element={<ProductDetail />} />
           <Route path="/logout" element={<Logout />} />
+          <Route path="/admin_login" element={<AdminLogin />} />
           
           
           <Route path="*" element={<NoMatch />} />
