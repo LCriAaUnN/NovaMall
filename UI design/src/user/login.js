@@ -23,7 +23,7 @@ const LoginForm = ({ route = "token/" , method = "login"}) => {
   const handleUserTypeChange = (event) => {
     setUserType(event.target.value);
     if (event.target.value === 'admin') {
-      navigate('/admin_login'); // 添加这行代码以在选择admin时导航
+      navigate('/admin_login'); 
     }
   };
 

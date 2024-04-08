@@ -29,7 +29,7 @@ function Admin() {
     <div className="admin-container">
       <nav className="admin-nav">
         <img src={logoImage} alt="Logo" className="admin-logo" />
-        <button className={activeTab === 'users' ? 'active' : ''} onClick={() => navigate('/user-management')}>User Management</button>
+        <button className={activeTab === 'users' ? 'active' : ''} onClick={() => navigate('/admin')}>User Management</button>
         <button className={activeTab === 'products' ? 'active' : ''} onClick={() => navigate('/product-management')}>Product Management</button>
       </nav>
       <div className="admin-content">
