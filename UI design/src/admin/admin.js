@@ -1,13 +1,17 @@
 // admin.js
 import React, { useState } from 'react';
+import { useNavigate, useLocation } from 'react-router-dom';
 import './admin.css'; 
 import logoImage from './img/logo-1.jpg';
 
 // Mock data import
 import { users, products } from './data';
 
+
 function Admin() {
-  const [activeTab, setActiveTab] = useState('users'); 
+  const navigate = useNavigate();
+  const location = useLocation();
+  const activeTab = location.pathname.includes('product-management') ? 'products' : 'users';
 
   // Function to remove user
   const handleRemoveUser = (userId) => {
@@ -25,8 +29,8 @@ function Admin() {
     <div className="admin-container">
       <nav className="admin-nav">
         <img src={logoImage} alt="Logo" className="admin-logo" />
-        <button className={activeTab === 'users' ? 'active' : ''} onClick={() => setActiveTab('users')}>User Management</button>
-        <button className={activeTab === 'products' ? 'active' : ''} onClick={() => setActiveTab('products')}>Product Management</button>
+        <button className={activeTab === 'users' ? 'active' : ''} onClick={() => navigate('/user-management')}>User Management</button>
+        <button className={activeTab === 'products' ? 'active' : ''} onClick={() => navigate('/product-management')}>Product Management</button>
       </nav>
       <div className="admin-content">
         <div className="admin-header">

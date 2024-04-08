@@ -52,6 +52,8 @@ function App(props) {
           <Route path="/cart" element={<ProtectedRoute><CartPage /></ProtectedRoute>} />
           <Route path="/wishlist" element={<ProtectedRoute><WishlistPage /></ProtectedRoute>} />
           <Route path="/admin" element={<Admin />} />
+          <Route path="/user-management" element={<Admin activeTab="users" />} />
+          <Route path="/product-management" element={<Admin activeTab="products" />} />
           <Route path="/product/:id" element={<ProductDetail />} />
           <Route path="/logout" element={<Logout />} />
           <Route path="/admin_login" element={<AdminLogin />} />
