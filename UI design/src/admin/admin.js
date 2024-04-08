@@ -25,12 +25,23 @@ function Admin() {
 
   };
 
+  const handleLogout = () => {
+    // 显示确认对话框
+    const confirmLogout = window.confirm("Are you sure you want to logout?");
+    if (confirmLogout) {
+      // 用户确认登出，导航到登出页面
+      navigate('/logout');
+    }
+    // 如果用户选择“取消”，则不做任何操作，留在当前页面
+  };
+
   return (
     <div className="admin-container">
       <nav className="admin-nav">
         <img src={logoImage} alt="Logo" className="admin-logo" />
         <button className={activeTab === 'users' ? 'active' : ''} onClick={() => navigate('/admin')}>User Management</button>
         <button className={activeTab === 'products' ? 'active' : ''} onClick={() => navigate('/product-management')}>Product Management</button>
+        <button className="logout-button" onClick={handleLogout}>Logout</button>
       </nav>
       <div className="admin-content">
         <div className="admin-header">
