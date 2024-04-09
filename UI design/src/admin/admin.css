@@ -22,6 +22,7 @@
     border-right: 1px solid #ddd;
     overflow-y: auto; 
   }
+
   
   .admin-nav button {
     display: block;
@@ -115,5 +116,8 @@
     background-color: #f4f4f4;
   }
   
+  .logout-button {
+    margin-left: auto; /* This pushes the logout button to the right */
+  }
 
-  
+
