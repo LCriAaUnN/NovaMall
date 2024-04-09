@@ -1,11 +1,12 @@
 // admin.js
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import './admin.css'; 
 import logoImage from './img/logo-1.jpg';
+import api from "../api";
 
 // Mock data import
-import { users, products } from './data';
+//  import { products } from './data';
 
 
 function Admin() {
@@ -13,10 +14,32 @@ function Admin() {
   const location = useLocation();
   const activeTab = location.pathname.includes('product-management') ? 'products' : 'users';
 
+  const [users, setUsers] = useState([]);
+  const [products, setProducts] = useState([]);
+
+  useEffect(() => {
+    getUsers();
+  }, []);
+
+
+  const getUsers = () => {
+    api
+      .get('/user/list/')
+      .then((res) => res.data) 
+      .then((data) => {setUsers(data); console.log(data);})
+      .catch((err) => alert(err));
+  };
+
   // Function to remove user
   const handleRemoveUser = (userId) => {
-    console.log('User removed, ID:', userId);
-
+    api
+      .delete(`/user/delete/${userId}/`)
+      .then((res) => {
+        if (res.status === 204) alert("Note deleted!");
+        else alert("Failed to delete note.");
+        getUsers();
+      })
+      .catch((error) => alert(error));
   };
 
   // Function to remove product
@@ -83,7 +106,7 @@ function Users({ users, onEdit, onRemove }) {
             {users.map(user => (
               <tr key={user.id}>
                 <td>{user.id}</td>
-                <td>{user.name}</td>
+                <td>{user.username}</td>
                 <td>
                   <button className="edit-btn" onClick={() => onEdit(user.id)}>Edit</button>
                   <button className="remove-btn" onClick={() => onRemove(user.id)}>Remove</button>
