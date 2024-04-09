@@ -47,28 +47,23 @@ const AdminLogin = ({ route = "token/" , method = "login"}) => {
     setLoading(true)
     event.preventDefault();
 
-    // Check if the entered username and password match the admin credentials
-    if (userType === 'admin' && username === 'Admin' && password === 'Admin') {
-      navigate('/admin');
-    }
-    // Check if the entered username and password match the user credentials
-    else if (userType === 'user') {
-      if (username === 'user' && password === 'user') {
-        navigate('/user');
-      } else {
-        try {
-          console.log("Route:", route);
-          const res = await api.post(route, { username, password })
-          localStorage.setItem(ACCESS_TOKEN, res.data.access);
-          localStorage.setItem(REFRESH_TOKEN, res.data.refresh);
-          navigate("/user")
-        } catch (error) {
-          displayMessage('failure', 'Login failed. Please check your Username or Password and try again.');
-        }
+    if(username === "NovaMall") {
+      try {
+        console.log("Route:", route);
+        const res = await api.post(route, { username, password })
+        localStorage.setItem(ACCESS_TOKEN, res.data.access);
+        localStorage.setItem(REFRESH_TOKEN, res.data.refresh);
+        navigate("/admin")
+      } catch (error) {
+        console.log("Error:", error);
+        displayMessage('failure', 'Login failed. Please check your Username or Password and try again.');
       }
-    } else {
-      
     }
+    else {
+      displayMessage('failure', 'Login failed. Please check your Username or Password and try again.');
+    }
+      
+  
   };
 
   return (
