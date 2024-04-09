@@ -3,8 +3,9 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import logoImage from './img/logo.jpg';
+import api from '../api';
 
-const SignUpForm = () => {
+const SignUpForm = ({route = "/user/register/", method = "register"}) => {
   const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -38,16 +39,25 @@ const SignUpForm = () => {
     }, 1000);
   };
 
-  const handleSignUp = (event) => {
+  const handleSignUp = async (event) => {
     event.preventDefault();
 
-    // 简化的注册逻辑
+   
     if (password === confirmedPassword && password) {
-      console.log('Registration successful for:', username, email);
-      showMessage("Registration Successful!", true);
-      setTimeout(() => navigate('/login'), 1000); // 假设注册成功后1秒钟跳转到登录页面
+      try {
+        console.log("Route:", route);
+        const rest = await api.post(route, { username, email, password })
+        showMessage("Registration Successful!", true);
+        setTimeout(() => navigate('/login'), 1000); // 假设注册成功后1秒钟跳转到登录页面\
+      }
+      catch (error) {
+        console.error(error);
+        showMessage("Registration  failed. Please try again.", false);
+      }
+      
+      
     } else {
-      showMessage("Registration Failed. Please try again.", false);
+      showMessage("Password is invalid or not confirmed. Please try again.", false);
     }
   };
 

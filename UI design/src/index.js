@@ -22,7 +22,7 @@ import AdminLogin from './user/login_admin';
 
 function Logout() {
   localStorage.clear()
-  return <Navigate to="/login" />
+  return <Navigate to="/home" />
 }
 
 function RegisterAndLogout() {
