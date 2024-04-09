@@ -10,7 +10,7 @@ import { Link } from 'react-router-dom';
 import './home.css';
 import Dropdown from 'react-bootstrap/Dropdown'
 import Carousel from 'react-bootstrap/Carousel';
-import { FaHeart, FaSearch, FaShoppingCart } from 'react-icons/fa';
+import { FaHeart, FaSearch, FaShoppingCart,  FaUserCircle, FaSignOutAlt } from 'react-icons/fa';
 import salesImage from './img/easter5.webp';
 import salesImage2 from './img/sales_banners.jpg';
 import salesImage3 from './img/easter4.webp';
@@ -173,8 +173,8 @@ const navigate = useNavigate();
         </div>
 
         <div className="wishlist-cart-icons">
-            <Link to="/wishlist" className="icon-link">
-              <FaHeart className="icon" />
+            <Link to="/user" className="icon-link">
+              <FaUserCircle className="icon" /> 
             </Link>
             <Link to="/cart" className="icon-link">
               <FaShoppingCart className="icon" />
@@ -208,6 +208,14 @@ const navigate = useNavigate();
           <Link to="/login">
           <button style={{ backgroundColor: '#080808' }}>Login</button>
           </Link>
+          <button
+            onClick={() => {
+              navigate('/logout');
+              }}
+            style={{ backgroundColor: '#080808', marginLeft: '8px' }}
+            >
+            <FaSignOutAlt /> Logout
+          </button>
         </div>
 
       <div className="banner">

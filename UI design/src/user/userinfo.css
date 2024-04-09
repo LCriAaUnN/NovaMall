@@ -126,12 +126,50 @@ body, html {
   }
 
   .list-item > .item-name {
-    /* Your styles for name */
-    margin-right: auto; /* This will push the price and button to the right */
+    
+    margin-right: auto; 
   }
   
   .item-details {
     display: flex;
     align-items: center;
-    /* No need for margin-left: auto here as it's taken care of by the item-name margin */
+    
   }
+
+  .edit-button {
+    background-color: #0051cc;
+  }
+
+  .profile-header {
+    position: relative; 
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
+}
+.profile-edit-form-wrapper {
+  margin-top: 10em; 
+}
+
+
+.form-group {
+  margin-bottom: 1em; 
+}
+
+.form-group label {
+  display: block; 
+  margin-bottom: 0.5em; 
+}
+
+.form-group input {
+  width: 30%; 
+  padding: 0.5em; 
+  
+}
+
+.form-buttons {
+  margin-top: 1em; 
+}
+
+.form-buttons button {
+  margin-right: 0.5em; 
+}
