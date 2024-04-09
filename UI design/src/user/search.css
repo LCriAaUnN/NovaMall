@@ -1,0 +1,33 @@
+.card-product {
+    height: 400px; /* Fixed height for all product cards */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Distribute space evenly */
+  }
+  
+  .card-product .card-body {
+    flex-grow: 1; /* Allow card body to take up available space */
+  }
+  
+  .card-product-img {
+    height: 200px; /* Fixed height for card images */
+    object-fit: cover; /* Ensures the image covers the area without stretching */
+    width: 100%; /* Ensures the image covers the full width of the card */
+  }
+  
+  .card-product-body {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Pushes the button to the bottom */
+  }
+  
+  .card-product-title, .card-product-price {
+    margin: 5px 0; /* Spacing for title and price */
+  }
+
+.no-results {
+    text-align: center;
+    padding: 20px;
+    font-size: 1.2rem;
+  }

@@ -107,6 +107,20 @@ const categories = [
   // ... other categories
 ];
 
+const [searchTerm, setSearchTerm] = useState('');
+
+const handleSearchInputChange = (event) => {
+  setSearchTerm(event.target.value);
+};
+
+const handleSearch = () => {
+  if (searchTerm.trim() !== '') {
+    navigate(`/search?search=${encodeURIComponent(searchTerm)}`);
+  } else {
+    alert('Please enter a search term.');
+  }
+};
+
 const navigate = useNavigate();
 
   const handleCategoryClick = (categoryName) => {
@@ -167,8 +181,8 @@ const navigate = useNavigate();
       </Dropdown>
       
         <FaSearch id='search-icon'/>
-        <input type="text" placeholder="Search products" />
-        <button style={{ backgroundColor: '#080808' }}>Search</button>
+        <input type="text" placeholder="Search products" value={searchTerm} onChange={handleSearchInputChange}/>
+        <button style={{ backgroundColor: '#080808' }} onClick={handleSearch}>Search</button>
         </div>
         </div>
 
@@ -260,12 +274,9 @@ const navigate = useNavigate();
     {filteredProducts.map((product) => (
       <Col key={product.id} sm={6} md={4} lg={3}>
         <Card className="card-product">
-          {/* Set a class for the image to control its size */}
           <Card.Img variant="top" src={product.imageUrl} className="card-product-img" />
-          {/* Flex container for the card body */}
           <Card.Body className="card-product-body">
             <div>
-              {/* Separate div to contain title and price */}
               <Card.Title className="card-product-title">{product.title}</Card.Title>
               <Card.Text className="card-product-price">${product.price.toFixed(2)}</Card.Text>
             </div>

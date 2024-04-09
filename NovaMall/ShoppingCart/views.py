@@ -16,27 +16,28 @@ class CartView(generics.ListCreateAPIView):
     serializer_class = CartSerializer
     permission_classes = [IsAuthenticated]
 
-    def view_cart(self, request):
-        user = request.user
-        cart = Cart.objects.filter(user=user)
-        cart_serializer = CartSerializer(cart, many=True)
-        return Response(cart_serializer.data)
+    def get_queryset(self):
+        user = self.request.user
+        return Cart.objects.filter(user=user)
     
-    def add_to_cart(self, request):
+    def delete(self, request, id):
         user = request.user
-        if request.method == "POST":
-            product_id = request.GET.get("product_id")
-            product = Product.objects.get(id=product_id)
-            price = product.price
-            Cart.objects.create(product_id=product_id, price=price, user=user)
-            return Response(status=status.HTTP_200_OK)
+        Cart.objects.filter(id=id, user_id=user).delete()
+        return Response(status=status.HTTP_204_NO_CONTENT)
     
-    def remove_from_cart(self, request):
+    # def view_cart(self, request):
+    #     user = request.user
+    #     cart = Cart.objects.filter(user=user)
+    #     cart_serializer = CartSerializer(cart, many=True)
+    #     return Response(cart_serializer.data)
+    
+    def post(self, request, id):
         user = request.user
-        if request.method == "DELETE":
-            product_id = request.data.get("product_id")
-            Cart.objects.filter(product_id=product_id, user=user).delete()
-            return Response(status=status.HTTP_200_OK)
+        product_id = id
+        product = Product.objects.get(id=product_id)
+        price = product.price
+        Cart.objects.create(product_id=product_id, price=price, user=user)
+        return Response(status.HTTP_200_OK)
     
     def checkout(self,request):
         user = request.user

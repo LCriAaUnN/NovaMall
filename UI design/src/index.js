@@ -19,6 +19,8 @@ import Signup from './user/signup';
 import { MapContainer, TileLayer, Marker } from 'react-leaflet';
 import ProtectedRoute from "./components/ProtectedRoute";
 import AdminLogin from './user/login_admin';
+import SearchResultsPage from './user/search';
+import PaymentPage from './user/payment';
 
 function Logout() {
   localStorage.clear()
@@ -46,10 +48,12 @@ function App(props) {
         <Routes>
           <Route path="/" element={<Navigate replace to="/home" />} />
           <Route path="/home" element={<HomePage />}/>
+          <Route path="/search" element={<SearchResultsPage />} />
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
-          <Route path="/user" element={<ProtectedRoute><UserInfo/></ProtectedRoute>} />
-          <Route path="/cart" element={<ProtectedRoute><CartPage /></ProtectedRoute>} />
+          <Route path="/user" element={<UserInfo/>} />
+          <Route path="/cart" element={<CartPage/>} />
+          <Route path="/payment" element={<PaymentPage />} />
           <Route path="/wishlist" element={<ProtectedRoute><WishlistPage /></ProtectedRoute>} />
           <Route path="/admin" element={<Admin />} />
           <Route path="/user-management" element={<Admin activeTab="users" />} />
