@@ -84,7 +84,7 @@ function CartPage() {
                           <div className="cart-total">
                               Total: ${calculateTotal(cartItems)}
                           </div>
-                          <button className="checkout-button">Checkout</button>
+                          <button className="checkout-button" onClick={() => navigate('/payment')}>Checkout</button>
                       </div>
                   ) : (
                       <p>Your cart is empty.</p>
