@@ -105,10 +105,10 @@ const LoginForm = ({ route = "token/" , method = "login"}) => {
               Admin
             </label>
           </div>
-          <div className="form-group">
+          <div className="form-group-login">
             <input type="text" placeholder="Username" value={username} onChange={handleUsernameChange} />
           </div>
-          <div className="form-group">
+          <div className="form-group-login">
             <input type="password" placeholder="Password" value={password} onChange={handlePasswordChange} />
           </div>
           <div className="action-buttons">
