@@ -1,11 +1,15 @@
 // ProductDetail.js
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import api from "../api";
+import { Link } from 'react-router-dom';
 import { useParams } from 'react-router-dom';
 import { Carousel } from 'react-bootstrap'; 
 import { products } from './data.js'; 
 import './ProductDetail.css'; 
 
-const ProductDetail = () => {
+
+// const ProductDetail = () => {
+function ProductDetail() {
     let { id } = useParams();
     const [wishlist, setWishlist] = useState(false);
     const [cartMessage, setCartMessage] = useState('');
@@ -15,11 +19,14 @@ const ProductDetail = () => {
     
     // 显示 "Added to cart" 的信息框
     const handleAddToCart = () => {
-      setCartMessage('Added to cart');
-      setTimeout(() => {
-        setCartMessage('');
-      }, 500); 
-    };
+      api
+        .post(`/cart/add/${id}/`)
+        .then((res) => {
+          if (res.status === 200) alert("Item added successfully");
+          else alert("Failed to add item");
+        })
+        .catch((err) => alert(err));
+    }
   
     if (!product) {
       return <div>Product not found</div>;
