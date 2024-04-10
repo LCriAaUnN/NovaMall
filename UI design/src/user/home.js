@@ -23,7 +23,6 @@ import hat from './img/hat3.jpg';
 
 
 
-
 function HomePage() {
   const [minPrice, setMinPrice] = useState('');
   const [maxPrice, setMaxPrice] = useState('');
@@ -50,45 +49,6 @@ function HomePage() {
 
 
   ];
-
-  // const products = [
-  //   {
-  //     id: 1,
-  //     title: 'iPhone 15 256G',
-  //     price: 6999,
-  //     imageUrl: phone,
-  //     category: 'Electronics', 
-  //   },
-  //   {
-  //     id: 2,
-  //     title: 'Dorothee Schumacher Midi dress',
-  //     price: 3000,
-  //     imageUrl: clothesImage1,
-  //     category: 'Clothing', 
-  //   },
-  //   {
-  //     id: 3,
-  //     title: 'The Black Book of Colors',
-  //     price: 208,
-  //     imageUrl: book,
-  //     category: 'Clothing', 
-  //   },
-  //   {
-  //     id: 4,
-  //     title: 'Calvin Klein Denim Bucket Hat',
-  //     price: 490,
-  //     imageUrl: hat,
-  //     category: 'Accessories', 
-  //   },
-    //{
-    //  id: 5,
-    //  title: 'Clothing 4',
-    //  price: 49.99,
-    //  imageUrl: clothes,
-    //  category: 'Clothing', 
-    //},
-    // ... more products ...
-  //];
 
   // Define your category data
 const categories = [
@@ -347,7 +307,7 @@ const navigate = useNavigate();
     {products.map((product) => (
       <Col key={product.id} sm={6} md={4} lg={3}>
         <Card className="card-product">
-          <Card.Img variant="top" src={product.imageUrl} className="card-product-img" />
+          <Card.Img variant="top" src={product.image} className="card-product-img" />
           <Card.Body className="card-product-body">
             <div>
               <Card.Title className="card-product-title">{product.name}</Card.Title>

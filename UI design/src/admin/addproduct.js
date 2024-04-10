@@ -39,16 +39,22 @@ const AddProduct = () => {
   };
 
   const handleSubmit = () => {
-    const data = {
-      name: formData.name,
-      price: formData.price,
-      description: formData.description,
-      stock: formData.stock,
-      catagory: formData.catagory,
-      image: formData.image,
-    }
+    // const data = {
+    //   name: formData.name,
+    //   price: formData.price,
+    //   description: formData.description,
+    //   stock: formData.stock,
+    //   catagory: formData.catagory,
+    //   image: formData.image,
+    // }
+    const data = new FormData();
+    data.append('name', formData.name);
+    data.append('price', formData.price);
+    data.append('description', formData.description);
+    data.append('stock', formData.stock);
+    data.append('catagory', formData.catagory);
+    data.append('image', formData.image);
     
-    alert(data.image)
     api
       .post('/product/add/', data)
       .then((res) => {

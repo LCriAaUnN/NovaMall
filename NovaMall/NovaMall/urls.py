@@ -24,6 +24,8 @@ from ShopPage.views import ProductAddView
 from User.views import CreateUserView
 from Homepage.views import ProductSearchView
 from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView
+from django.conf import settings
+from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -46,4 +48,4 @@ urlpatterns = [
     path("token/refresh/", TokenRefreshView.as_view(), name="refresh_token"),
     path("auth/", include("rest_framework.urls")),
     path("user/", include("User.urls")),
-]
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

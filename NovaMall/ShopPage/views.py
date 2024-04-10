@@ -36,8 +36,16 @@ class ProductAddView(generics.ListCreateAPIView):
     permission_classes = [IsAuthenticated]
 
     def post(self, request):
-        data = json.loads(request.body)
-        image = ContentFile(request.FILES['image'].read())
-        # image = request.FILES[data['image']]
-        Product.objects.create(name=data['name'], price=data['price'], catagory=data['catagory'], count=data['stock'], image=image, description=data['description'])
+        # data = json.loads(request.body)
+        # image = ContentFile(request.FILES['image'].read())
+        # # image = request.FILES[data['image']]
+        # Product.objects.create(name=data['name'], price=data['price'], catagory=data['catagory'], count=data['stock'], image=image, description=data['description'])
+        # return Response(status=status.HTTP_200_OK)
+        name = request.POST['name']
+        price = request.POST['price']
+        description = request.POST['description']
+        stock = request.POST['stock']
+        catagory = request.POST['catagory']
+        image = request.FILES['image']
+        Product.objects.create(name=name, price=price, catagory=catagory, count=stock, image=image, description=description)
         return Response(status=status.HTTP_200_OK)
