@@ -35,7 +35,7 @@ class CartView(generics.ListCreateAPIView):
             return Response(status.HTTP_200_OK)
         else:
             return Response(status.HTTP_400_BAD_REQUEST)
-    
+
     # def checkout(self,request):
     #     user = request.user
     #     cart = Cart.objects.filter(user=user)
