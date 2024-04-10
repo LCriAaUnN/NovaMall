@@ -8,7 +8,7 @@ const UserInfo = () => {
     const navigate = useNavigate();
     const [activeTab, setActiveTab] = useState('profile');
     const [isEditing, setIsEditing] = useState(false);
-    const [user, setUser] = useState([]); // State to store user data
+    const [users, setUser] = useState([]); // State to store user data
   
     useEffect(() => {
       getUser();
@@ -21,9 +21,9 @@ const UserInfo = () => {
           .then((data) => {setUser(data); console.log(data);})
           .catch((err) => alert(err));
     };
-
-
-
+    
+    const user = users[0] || {}; // Get the first user object from the array
+    
 
   const handleEditClick = () => {
       setIsEditing(true);  // When the Edit button is clicked, show the edit form
