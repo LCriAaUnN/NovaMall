@@ -307,7 +307,7 @@ const navigate = useNavigate();
     {products.map((product) => (
       <Col key={product.id} sm={6} md={4} lg={3}>
         <Card className="card-product">
-          <Card.Img variant="top" src={product.image} className="card-product-img" />
+          <Card.Img variant="top" src={"http://127.0.0.1:8000"+product.image} className="card-product-img" />
           <Card.Body className="card-product-body">
             <div>
               <Card.Title className="card-product-title">{product.name}</Card.Title>

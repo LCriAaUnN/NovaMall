@@ -46,16 +46,8 @@ function ProductDetail() {
 
   return (
     <div className="product-detail-container">
-      {/* Carousel 位置 */}
-      {/* <Carousel className="product-image-carousel">
-        {product.image.map((image, index) => (
-          <Carousel.Item key={index}>
-            <div className="carousel-image-container">
-              <img className="carousel-image" src={image} alt={`Slide ${index}`} />
-            </div>
-          </Carousel.Item>
-        ))}
-      </Carousel> */}
+      {/* 商品图片 */}
+      <img src={"http://127.0.0.1:8000"+product.image} alt="Product" className="product-image" />
        {/* 商品信息 */}
       <div className="product-info">
         <h2 className="product-title">{product.name}</h2>
