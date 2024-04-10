@@ -35,7 +35,9 @@ function SearchResultsPage() {
             <Card.Body>
               <Card.Title>{result.title}</Card.Title>
               <Card.Text>{result.description}</Card.Text>
-              <Button variant="primary">Go somewhere</Button>
+              <Link to={`/product/${product.id}`}>
+                <Button style={{ backgroundColor: '#080808' }}>View Details</Button>
+              </Link>
             </Card.Body>
           </Card>
         ))

@@ -14,22 +14,22 @@ class CreateUserView(generics.CreateAPIView):
 class UserDelete(generics.DestroyAPIView):
     queryset = User.objects.all()
     serializer_class = UserSerializer
-    permission_classes = [AllowAny]
+    permission_classes = [IsAuthenticated]
 
 class ListUsersView(generics.ListAPIView):
     serializer_class = UserSerializer
-    permission_classes = [AllowAny]
+    permission_classes = [IsAuthenticated]
 
     def get_queryset(self):
         return User.objects.exclude(username="NovaMall")
 
-class UserProfileView(generics.RetrieveAPIView):
+class UserProfileView(generics.ListAPIView):
     serializer_class = UserSerializer
-    permission_classes = [AllowAny]
-    lookup_field = "username"
+    permission_classes = [IsAuthenticated]
 
     def get_queryset(self):
-        return User.objects.all()
+        user =  self.request.user
+        return User.objects.filter(username=user)
 
 
 

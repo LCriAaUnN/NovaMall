@@ -52,11 +52,11 @@ function App(props) {
           <Route path="/search" element={<SearchResultsPage />} />
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
-          <Route path="/user" element={<UserInfo/>} />
-          <Route path="/cart" element={<CartPage/>} />
-          <Route path="/payment" element={<PaymentPage />} />
+          <Route path="/user" element={<ProtectedRoute><UserInfo/></ProtectedRoute>} />
+          <Route path="/cart" element={<ProtectedRoute><CartPage/></ProtectedRoute>} />
+          <Route path="/payment" element={<ProtectedRoute><PaymentPage /></ProtectedRoute>} />
           <Route path="/wishlist" element={<ProtectedRoute><WishlistPage /></ProtectedRoute>} />
-          <Route path="/admin" element={<Admin />} />
+          <Route path="/admin" element={<ProtectedRoute><Admin /></ProtectedRoute>} />
           <Route path="/user-management" element={<Admin activeTab="users" />} />
           <Route path="/product-management" element={<Admin activeTab="products" />} />
           <Route path="/product/:id" element={<ProductDetail />} />
