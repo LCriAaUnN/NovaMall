@@ -168,6 +168,7 @@ const navigate = useNavigate();
   }, []);
 
   const getProducts = (navbarCategory) => {
+    console.log(navbarCategory);
     api
       .get(`/products/${navbarCategory}/`)
       .then((res) => res.data)
