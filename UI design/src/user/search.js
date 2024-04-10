@@ -1,75 +1,7 @@
 import React, { useEffect, useState } from 'react';
+import api from "../api";
 import { useLocation, useNavigate, Link } from 'react-router-dom';
 import { Button, Card } from 'react-bootstrap';
-import salesImage from './img/easter5.webp';
-import salesImage2 from './img/sales_banners.jpg';
-import salesImage3 from './img/easter4.webp';
-import phone from './img/phone.jpg';
-import clothes from './img/clothes.jpg';
-import clothesImage1 from './img/clothes1.jpg';
-import book from './img/book.jpg';
-import hat from './img/hat3.jpg';
-
-
-// 示例产品数据，实际应用中应从共享状态或API获取
-const products = [
-  {
-    id: 1,
-    title: 'iPhone 15 256G',
-    price: 6999,
-    imageUrl: phone,
-    category: 'Electronics', 
-  },
-  {
-    id: 2,
-    title: 'Dorothee Schumacher Midi dress',
-    price: 3000,
-    imageUrl: clothesImage1,
-    category: 'Clothing', 
-  },
-  {
-    id: 3,
-    title: 'The Black Book of Colors',
-    price: 208,
-    imageUrl: book,
-    category: 'Book', 
-  },
-  {
-    id: 4,
-    title: 'Calvin Klein Denim Bucket Hat',
-    price: 490,
-    imageUrl: hat,
-    category: 'Accessories', 
-  },
-  {
-    id: 1,
-    title: 'iPhone 15 256G',
-    price: 6999,
-    imageUrl: phone,
-    category: 'Electronics', 
-  },
-  {
-    id: 2,
-    title: 'Dorothee Schumacher Midi dress',
-    price: 3000,
-    imageUrl: clothesImage1,
-    category: 'Clothing', 
-  },
-  {
-    id: 3,
-    title: 'The Black Book of Colors',
-    price: 208,
-    imageUrl: book,
-    category: 'Book', 
-  },
-  {
-    id: 4,
-    title: 'Calvin Klein Denim Bucket Hat',
-    price: 490,
-    imageUrl: hat,
-    category: 'Accessories', 
-  }
-];
 
 function SearchResultsPage() {
   const [searchResults, setSearchResults] = useState([]);
@@ -78,21 +10,31 @@ function SearchResultsPage() {
 
   useEffect(() => {
     const searchParams = new URLSearchParams(location.search);
-    const searchTerm = searchParams.get('search');
+    const searchTerm = searchParams.get('search') || 'None';
     const minPrice = parseFloat(searchParams.get('minPrice')) || 0;
-    const maxPrice = parseFloat(searchParams.get('maxPrice')) || Infinity;
-    const category = searchParams.get('category');
+    const maxPrice = parseFloat(searchParams.get('maxPrice')) || 999999;
+    const category = searchParams.get('category') || 'All';
 
     // 在客户端进行搜索和筛选
-    const filteredResults = products.filter(product => {
-      const matchesTerm = searchTerm ? product.title.toLowerCase().includes(searchTerm.toLowerCase()) : true;
-      const matchesPrice = product.price >= minPrice && product.price <= maxPrice;
-      const matchesCategory = category ? product.category === category : true;
-      return matchesTerm && matchesPrice && matchesCategory;
-    });
+    // const filteredResults = products.filter(product => {
+    //   const matchesName = searchTerm ? product.title.toLowerCase().includes(searchTerm.toLowerCase()) : true;
+    //   const matchesTerm = searchTerm ? (product.id.toString() === searchTerm.trim() || matchesName) : true;
+    //   const matchesPrice = product.price >= minPrice && product.price <= maxPrice;
+    //   const matchesCategory = category ? product.category === category : true;
+    //   return matchesTerm && matchesPrice && matchesCategory;
+    // });
 
-    setSearchResults(filteredResults);
+    //setSearchResults(filteredResults);
+    getSearchResults(searchTerm, minPrice, maxPrice, category);
   }, [location.search]);
+
+  const getSearchResults = (searchTerm, minPrice, maxPrice, category) => {
+    api
+      .get(`/search/${searchTerm}/${minPrice}/${maxPrice}/${category}/`)
+      .then((res) => res.data)
+      .then((data) => setSearchResults(data))
+      .catch((err) => alert(err));
+  }
 
   const navigateBack = () => {
     navigate('/home');
@@ -108,7 +50,7 @@ function SearchResultsPage() {
           <Card key={product.id} style={{ width: '18rem', margin: '10px' }}>
             <Card.Img variant="top" src={product.imageUrl} />
             <Card.Body>
-              <Card.Title>{product.title}</Card.Title>
+              <Card.Title>{product.name}</Card.Title>
               <Card.Text>Price: ${product.price}</Card.Text> {/* 这里使用Card.Text展示价格 */}
               <Link to={`/product/${product.id}`}>
                 <Button style={{ backgroundColor: '#080808' }}>View Details</Button>

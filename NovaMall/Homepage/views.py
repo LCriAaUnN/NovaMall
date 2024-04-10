@@ -16,10 +16,14 @@ class ProductSearchView(generics.ListAPIView):
     min = kwargs['min']
     max = kwargs['max']
     cagetory = kwargs['cagetory']
+    try:
+      searchTerm_int = int(searchTerm)
+    except ValueError:
+      searchTerm_int = None
     if cagetory == 'All':
-      products = Product.objects.filter(Q(name__icontains=searchTerm) & Q(price__gte=min) & Q(price__lte=max))
+        products = Product.objects.filter((Q(name__icontains=searchTerm) | Q(id=searchTerm_int)) & Q(price__gte=min) & Q(price__lte=max))
     else:
-      products = Product.objects.filter(Q(name__icontains=searchTerm) & Q(price__gte=min) & Q(price__lte=max) & Q(catagory=cagetory))
+        products = Product.objects.filter((Q(name__icontains=searchTerm) | Q(id=searchTerm_int)) & Q(price__gte=min) & Q(price__lte=max) & Q(catagory=cagetory))
     product_serializer = ProductSerializer(products, many=True)
     return Response(product_serializer.data)
 

@@ -5,7 +5,8 @@ import Card from 'react-bootstrap/Card';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import { Link } from 'react-router-dom';
-
+import api from '../api';
+import axios from 'axios';
 
 
 
@@ -37,9 +38,26 @@ const AddProduct = () => {
     });
   };
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = () => {
+    const data = {
+      name: formData.name,
+      price: formData.price,
+      description: formData.description,
+      stock: formData.stock,
+      catagory: formData.catagory,
+      image: formData.image,
+    }
     
+    alert(data.image)
+    api
+      .post('/product/add/', data)
+      .then((res) => {
+        if (res.status === 200) alert("Product added successfully");
+        else alert("Failed to add product");
+      })
+      .catch((err) => alert(err));
   };
+
 return (
   <Container fluid className="addproduct" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
       <Link to="/admin" className="btn btn-secondary my-3">Back to Admin Dashboard</Link>
@@ -100,12 +118,12 @@ return (
             </Form.Group>
 
             {/* Product category */}
-            <Form.Group controlId="productCategory">
-              <Form.Label>Category</Form.Label>
+            <Form.Group controlId="productCatagory">
+              <Form.Label>Catagory</Form.Label>
               <Form.Control
                 type="text"
-                name="category"
-                value={formData.category}
+                name="catagory"
+                value={formData.catagory}
                 placeholder="Enter product category"
                 onChange={handleInputChange}
                 required
@@ -126,6 +144,7 @@ return (
             <Button variant="primary" type="submit">
               Add Product
             </Button>
+            
         </Form>
       </Card.Body>
       </Card>

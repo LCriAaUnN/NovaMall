@@ -20,6 +20,7 @@ from ShoppingCart.views import CartView
 from Order.views import OrderView
 from ShopPage.views import ProductView
 from ShopPage.views import ProductCagetoryView
+from ShopPage.views import ProductAddView
 from User.views import CreateUserView
 from Homepage.views import ProductSearchView
 from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView
@@ -37,6 +38,7 @@ urlpatterns = [
     # product
     path('products/<str:navbarCategory>/', ProductCagetoryView.as_view(), name='homepage_products'),
     path('product/<int:id>/', ProductView.as_view(), name="product"),
+    path('product/add/', ProductAddView.as_view(), name="add_product"),
     # search
     path('search/<str:searchTerm>/<int:min>/<int:max>/<str:cagetory>/', ProductSearchView.as_view(), name='search'),
     path('user/register/', CreateUserView.as_view(), name="register"),
