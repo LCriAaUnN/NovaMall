@@ -51,7 +51,7 @@ const LoginForm = ({ route = "token/" , method = "login"}) => {
         const res = await api.post(route, { username, password })
         localStorage.setItem(ACCESS_TOKEN, res.data.access);
         localStorage.setItem(REFRESH_TOKEN, res.data.refresh);
-        navigate("/user")
+        navigate("/home")
       } catch (error) {
         console.log("Error:", error);
         displayMessage('failure', 'Login failed. Please check your Username or Password and try again.');

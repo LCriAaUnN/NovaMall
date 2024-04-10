@@ -63,7 +63,7 @@ function App(props) {
           <Route path="/product/:id" element={<ProductDetail />} />
           <Route path="/logout" element={<Logout />} />
           <Route path="/admin_login" element={<AdminLogin />} />
-          <Route path="/order" element={<OrderPage/>} />
+          <Route path="/order" element={<ProtectedRoute><OrderPage/></ProtectedRoute>} />
           <Route path="/addproduct" element={<AddProduct/>} />
           
           

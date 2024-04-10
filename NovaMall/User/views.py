@@ -31,7 +31,10 @@ class UserProfileView(generics.ListAPIView):
         user =  self.request.user
         return User.objects.filter(username=user)
 
-
+class EditUserView(generics.UpdateAPIView):
+    queryset = User.objects.all()
+    serializer_class = UserSerializer
+    permission_classes = [IsAuthenticated]
 
 
 
