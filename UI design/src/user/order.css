@@ -1,0 +1,92 @@
+.orders-page {
+    width: 80%;
+    margin: 2rem auto;
+    padding: 1rem;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 5px; /* 圆角边框 */
+    background-color: #ddd;
+    background-image: url('./img/bg.jpg');
+  }
+  
+  .order-card {
+    background-color: #ffffff; /* White background */
+    padding: 20px; /* Increased padding */
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 2px solid #ccc;
+    border-radius: 15px; /* 圆角长方形 */
+  }
+  
+  .label {
+    display: block;
+    font-size: 0.8rem; /* Smaller font size */
+    color: #888; /* Gray color */
+    margin-bottom: 5px; /* Space between label and content */
+  }
+  
+  /* .order-details {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-grow: 1;
+    gap: 20px; 
+  } */
+
+  .order-details {
+    display: flex;
+    justify-content: space-between;
+    flex-grow: 1;
+    width: 100%;
+  }
+  
+  
+  .order-detail {
+    margin-right: 20px; /* Space between order details */
+  }
+
+  .detail-section {
+    display: flex;
+    flex-direction: column;
+    min-height: 60px; /* Minimum height for consistency */
+    width: 20%; /* Allocate width to each section */
+  }
+
+  .items-section {
+    width: 35%; /* Provide more space for items */
+  }
+
+  .items-section div {
+    margin-bottom: 5px; /* Space between items */
+  }
+  
+  .back-to-home {
+    background-color: #000000; /* Black background */
+    color: white; /* White text */
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 4px;
+  }
+  
+  button {
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 4px;
+    margin-left: 20px;
+  }
+  
+  button:hover {
+    background-color: #45a049;
+  }
+  
+  
+  
+  
