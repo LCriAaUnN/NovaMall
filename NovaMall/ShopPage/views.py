@@ -15,7 +15,7 @@ class ProductView(generics.ListCreateAPIView):
         product_serializer = ProductSerializer(product)
         return Response(product_serializer.data)
     
-class ProductSearchView(generics.ListCreateAPIView):
+class ProductCagetoryView(generics.ListCreateAPIView):
     serializer_class = ProductSerializer
     permission_classes = [AllowAny]
 
