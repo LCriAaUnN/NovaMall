@@ -165,7 +165,7 @@ const navigate = useNavigate();
 
   useEffect(() => {
     getProducts(navbarCategory);
-  }, []);
+  }, [navbarCategory]);
 
   const getProducts = (navbarCategory) => {
     console.log(navbarCategory);
@@ -330,7 +330,7 @@ const navigate = useNavigate();
           <Card.Img variant="top" src={product.imageUrl} className="card-product-img" />
           <Card.Body className="card-product-body">
             <div>
-              <Card.Title className="card-product-title">{product.title}</Card.Title>
+              <Card.Title className="card-product-title">{product.name}</Card.Title>
               <Card.Text className="card-product-price">${product.price.toFixed(2)}</Card.Text>
             </div>
             <Link to={`/product/${product.id}`}>
