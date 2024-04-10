@@ -10,11 +10,11 @@ import './ProductDetail.css';
 
 function ProductDetail() {
     let { id } = useParams();
-    const [wishlist, setWishlist] = useState(false);
+    // const [wishlist, setWishlist] = useState(false);
     const [cartMessage, setCartMessage] = useState('');
     const [product, setProduct] = useState('');
   
-    const handleWishlistToggle = () => setWishlist(!wishlist);
+    // const handleWishlistToggle = () => setWishlist(!wishlist);
     
     useEffect(() => {
       getProduct();
@@ -67,12 +67,12 @@ function ProductDetail() {
       
         {/* Wishlist 和 Shopping Cart 按钮位置 */}
         <div className="product-actions">
-          <span
+          {/* <span
             className={`button-wishlist ${wishlist ? 'active' : ''}`}
             onClick={handleWishlistToggle}
           >
             ♥
-          </span>
+          </span> */}
           <button className="button-cart" onClick={handleAddToCart}>
             ADD TO CART
           </button>
