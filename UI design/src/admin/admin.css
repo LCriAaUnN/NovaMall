@@ -12,17 +12,16 @@
   }
   
   .admin-nav {
-    position: fixed; 
-    width: 200px; 
-    top: 0;
-    bottom: 0;
+    position: fixed; /* Fix the navbar position */
+    width: 200px; /* Fixed width */
+    top: 0; /* Align to the top */
+    bottom: 0; /* Align to the bottom */
     padding: 20px;
     background-color: #fff;
     box-shadow: 2px 0 5px rgba(0,0,0,0.1);
     border-right: 1px solid #ddd;
-    overflow-y: auto; 
+    overflow-y: auto; /* Enable scrolling if content is long */
   }
-
   
   .admin-nav button {
     display: block;
@@ -34,8 +33,8 @@
     cursor: pointer;
     transition: background-color 0.3s;
     font-size: 14px;
-    margin-bottom: 10px; 
-    color:black;
+    margin-bottom: 10px; /* 设置底部间距为10像素 */
+    color:black
   }
   
   .admin-nav button.active,
@@ -44,11 +43,11 @@
   }
   
   .admin-content {
-    margin-left: 200px; 
+    margin-left: 200px; /* Add left margin equal to nav width */
     flex-grow: 1;
     padding: 20px;
-    height: 100vh; 
-    overflow-y: auto;
+    height: 100vh; /* Full height */
+    overflow-y: auto; /* Enable scrolling for content */
     background-color: #fff;
   }
   
@@ -69,9 +68,9 @@
     padding: 5px;
     margin-right: 10px;
     border: none;
-    border-radius: 10px; 
-    width: 90px; 
-    height: auto; 
+    border-radius: 10px; /* 圆角半径为10像素 */
+    width: 90px; /* 自适应宽度 */
+    height: auto; /* 自适应高度 */
     line-height: 30px;
     text-align: center;
     display: inline-block;
@@ -80,18 +79,18 @@
   }
   
   .add-btn {
-    width: auto; 
-    background-color: #4CAF50; 
+    width: auto; /* 自适应宽度 */
+    background-color: #4CAF50; /* Green */
     color: white;
   }
   
   .edit-btn {
-    background-color: #2196F3; 
+    background-color: #2196F3; /* Blue */
     color: white;
   }
   
   .remove-btn {
-    background-color: #f44336; 
+    background-color: #f44336; /* Red */
     color: white;
   }
   
@@ -118,6 +117,22 @@
   
   .logout-button {
     margin-left: auto; /* This pushes the logout button to the right */
+  }
+
+  .admin-header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .logout-button {
+    padding: 7px 10px;
+    border: none;
+    background-color: #0e0201;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    font-size: 16px;
   }
 
 

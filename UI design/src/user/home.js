@@ -24,6 +24,9 @@ import hat from './img/hat3.jpg';
 
 
 function HomePage() {
+  const [minPrice, setMinPrice] = useState('');
+  const [maxPrice, setMaxPrice] = useState('');
+
   const events = [
     {
       src: salesImage3,
@@ -76,14 +79,34 @@ function HomePage() {
       imageUrl: hat,
       category: 'Accessories', 
     },
-    //{
-    //  id: 5,
-    //  title: 'Clothing 4',
-    //  price: 49.99,
-    //  imageUrl: clothes,
-    //  category: 'Clothing', 
-    //},
-    // ... more products ...
+    {
+      id: 1,
+      title: 'iPhone 15 256G',
+      price: 6999,
+      imageUrl: phone,
+      category: 'Electronics', 
+    },
+    {
+      id: 2,
+      title: 'Dorothee Schumacher Midi dress',
+      price: 3000,
+      imageUrl: clothesImage1,
+      category: 'Clothing', 
+    },
+    {
+      id: 3,
+      title: 'The Black Book of Colors',
+      price: 208,
+      imageUrl: book,
+      category: 'Clothing', 
+    },
+    {
+      id: 4,
+      title: 'Calvin Klein Denim Bucket Hat',
+      price: 490,
+      imageUrl: hat,
+      category: 'Accessories', 
+    }
   ];
 
   // Define your category data
@@ -113,11 +136,26 @@ const handleSearchInputChange = (event) => {
   setSearchTerm(event.target.value);
 };
 
+// const handleSearch = () => {
+//   if (searchTerm.trim() !== '') {
+//     navigate(`/search?search=${encodeURIComponent(searchTerm)}`);
+//   } else {
+//     alert('Please enter a search term.');
+//   }
+  // };
+  
 const handleSearch = () => {
-  if (searchTerm.trim() !== '') {
-    navigate(`/search?search=${encodeURIComponent(searchTerm)}`);
+  let searchQuery = `/search?search=${encodeURIComponent(searchTerm)}`;
+  if (minPrice.trim() !== '') {
+    searchQuery += `&minPrice=${encodeURIComponent(minPrice)}`;
+  }
+  if (maxPrice.trim() !== '') {
+    searchQuery += `&maxPrice=${encodeURIComponent(maxPrice)}`;
+  }
+  if (searchTerm.trim() !== '' || minPrice.trim() !== '' || maxPrice.trim() !== '') {
+    navigate(searchQuery);
   } else {
-    alert('Please enter a search term.');
+    alert('Please enter a search term or price range.');
   }
 };
 
@@ -198,6 +236,18 @@ const navigate = useNavigate();
           </Link>
           </div>
       </div>
+      <input
+        type="text"
+        placeholder="Min Price"
+        value={minPrice}
+        onChange={(e) => setMinPrice(e.target.value)}
+      />
+      <input
+        type="text"
+        placeholder="Max Price"
+        value={maxPrice}
+        onChange={(e) => setMaxPrice(e.target.value)}
+      />
       <div className="navbar">
         <nav>
           <ul>
@@ -272,7 +322,7 @@ const navigate = useNavigate();
   </Row>
 </div>
 
-      <Container>
+  <Container>
   <Row>
     {filteredProducts.map((product) => (
       <Col key={product.id} sm={6} md={4} lg={3}>
