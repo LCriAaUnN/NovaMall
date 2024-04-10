@@ -91,10 +91,9 @@ function Admin() {
   );
 }
 
-function Users({ users, onEdit, onRemove }) {
+function Users({ users, onRemove }) {
   return (
     <div className="user-section">
-      {/* <input className="search-input" placeholder="Search User" /> */}
       <div className="user-table-container">
         <table>
           <thead>
@@ -110,7 +109,6 @@ function Users({ users, onEdit, onRemove }) {
                 <td>{user.id}</td>
                 <td>{user.username}</td>
                 <td>
-                  <button className="edit-btn" onClick={() => onEdit(user.id)}>Edit</button>
                   <button className="remove-btn" onClick={() => onRemove(user.id)}>Remove</button>
                 </td>
               </tr>
