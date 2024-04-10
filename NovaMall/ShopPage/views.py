@@ -10,10 +10,21 @@ class ProductView(generics.ListCreateAPIView):
     serializer_class = ProductSerializer
     permission_classes = [AllowAny]
 
-    # def get_queryset(self, request, id):
-    #      return Product.objects.get(id=id)
-
     def get(self, request, id):
         product = Product.objects.get(id=id)
         product_serializer = ProductSerializer(product)
+        return Response(product_serializer.data)
+    
+class ProductSearchView(generics.ListCreateAPIView):
+    serializer_class = ProductSerializer
+    permission_classes = [AllowAny]
+
+    def get(self, request, *args, **kwargs):
+        navbarCategory = kwargs['navbarCategory']
+        print(navbarCategory)
+        if navbarCategory == 'All':
+            products = Product.objects.all()
+        else:
+            products = Product.objects.filter(catagory=navbarCategory)
+        product_serializer = ProductSerializer(products, many=True)
         return Response(product_serializer.data)

@@ -8,13 +8,11 @@ import { Carousel } from 'react-bootstrap';
 import './ProductDetail.css'; 
 
 
-// const ProductDetail = () => {
 function ProductDetail() {
     let { id } = useParams();
     const [wishlist, setWishlist] = useState(false);
     const [cartMessage, setCartMessage] = useState('');
     const [product, setProduct] = useState('');
-    //const product = products.find(product => product.id === parseInt(id));
   
     const handleWishlistToggle = () => setWishlist(!wishlist);
     

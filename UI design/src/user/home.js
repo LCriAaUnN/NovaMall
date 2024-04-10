@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import api from "../api";
 import { useNavigate } from 'react-router-dom';
 import ButtonGroup from 'react-bootstrap/ButtonGroup';
 import Button from 'react-bootstrap/Button';
@@ -50,64 +51,44 @@ function HomePage() {
 
   ];
 
-  const products = [
-    {
-      id: 1,
-      title: 'iPhone 15 256G',
-      price: 6999,
-      imageUrl: phone,
-      category: 'Electronics', 
-    },
-    {
-      id: 2,
-      title: 'Dorothee Schumacher Midi dress',
-      price: 3000,
-      imageUrl: clothesImage1,
-      category: 'Clothing', 
-    },
-    {
-      id: 3,
-      title: 'The Black Book of Colors',
-      price: 208,
-      imageUrl: book,
-      category: 'Clothing', 
-    },
-    {
-      id: 4,
-      title: 'Calvin Klein Denim Bucket Hat',
-      price: 490,
-      imageUrl: hat,
-      category: 'Accessories', 
-    },
-    {
-      id: 1,
-      title: 'iPhone 15 256G',
-      price: 6999,
-      imageUrl: phone,
-      category: 'Electronics', 
-    },
-    {
-      id: 2,
-      title: 'Dorothee Schumacher Midi dress',
-      price: 3000,
-      imageUrl: clothesImage1,
-      category: 'Clothing', 
-    },
-    {
-      id: 3,
-      title: 'The Black Book of Colors',
-      price: 208,
-      imageUrl: book,
-      category: 'Clothing', 
-    },
-    {
-      id: 4,
-      title: 'Calvin Klein Denim Bucket Hat',
-      price: 490,
-      imageUrl: hat,
-      category: 'Accessories', 
-    }
-  ];
+  // const products = [
+  //   {
+  //     id: 1,
+  //     title: 'iPhone 15 256G',
+  //     price: 6999,
+  //     imageUrl: phone,
+  //     category: 'Electronics', 
+  //   },
+  //   {
+  //     id: 2,
+  //     title: 'Dorothee Schumacher Midi dress',
+  //     price: 3000,
+  //     imageUrl: clothesImage1,
+  //     category: 'Clothing', 
+  //   },
+  //   {
+  //     id: 3,
+  //     title: 'The Black Book of Colors',
+  //     price: 208,
+  //     imageUrl: book,
+  //     category: 'Clothing', 
+  //   },
+  //   {
+  //     id: 4,
+  //     title: 'Calvin Klein Denim Bucket Hat',
+  //     price: 490,
+  //     imageUrl: hat,
+  //     category: 'Accessories', 
+  //   },
+    //{
+    //  id: 5,
+    //  title: 'Clothing 4',
+    //  price: 49.99,
+    //  imageUrl: clothes,
+    //  category: 'Clothing', 
+    //},
+    // ... more products ...
+  //];
 
   // Define your category data
 const categories = [
@@ -180,10 +161,24 @@ const navigate = useNavigate();
     setNavbarCategory(category);
   };
 
+  const [products, setProducts] = useState([]);
+
+  useEffect(() => {
+    getProducts(navbarCategory);
+  }, []);
+
+  const getProducts = (navbarCategory) => {
+    api
+      .get(`/products/${navbarCategory}/`)
+      .then((res) => res.data)
+      .then((data) => {setProducts(data); console.log(data)})
+      .catch((err) => alert(err));
+  }
+
   // Use navbarCategory for filtering the products
-  const filteredProducts = navbarCategory === 'All' 
-    ? products 
-    : products.filter(product => product.category === navbarCategory);
+  // const filteredProducts = navbarCategory === 'All' 
+  //   ? products 
+  //   : products.filter(product => product.category === navbarCategory);
 
   return (
     <div className='background'>
@@ -328,7 +323,7 @@ const navigate = useNavigate();
 
   <Container>
   <Row>
-    {filteredProducts.map((product) => (
+    {products.map((product) => (
       <Col key={product.id} sm={6} md={4} lg={3}>
         <Card className="card-product">
           <Card.Img variant="top" src={product.imageUrl} className="card-product-img" />
