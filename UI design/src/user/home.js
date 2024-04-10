@@ -192,6 +192,21 @@ const navigate = useNavigate();
         
     
       <div className="search-group">
+      <div className='price-inputs'>
+        <input
+        type="text"
+        placeholder="Min Price"
+        value={minPrice}
+        onChange={(e) => setMinPrice(e.target.value)}
+        style={{ width: '100%', maxWidth: '150px', boxSizing: 'border-box' }}
+      />
+      <input
+        type="text"
+        placeholder="Max Price"
+        value={maxPrice}
+        onChange={(e) => setMaxPrice(e.target.value)}
+        style={{ width: '100%', maxWidth: '150px', boxSizing: 'border-box' }}
+      /></div>
       <div className='input-wrapper'>
       <Dropdown as={ButtonGroup}>
       <Button variant="success" id="dropdown-basic">
@@ -236,18 +251,7 @@ const navigate = useNavigate();
           </Link>
           </div>
       </div>
-      <input
-        type="text"
-        placeholder="Min Price"
-        value={minPrice}
-        onChange={(e) => setMinPrice(e.target.value)}
-      />
-      <input
-        type="text"
-        placeholder="Max Price"
-        value={maxPrice}
-        onChange={(e) => setMaxPrice(e.target.value)}
-      />
+      
       <div className="navbar">
         <nav>
           <ul>
