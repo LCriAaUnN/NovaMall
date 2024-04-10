@@ -23,6 +23,15 @@ class ListUsersView(generics.ListAPIView):
     def get_queryset(self):
         return User.objects.exclude(username="NovaMall")
 
+class UserProfileView(generics.RetrieveAPIView):
+    serializer_class = UserSerializer
+    permission_classes = [AllowAny]
+    lookup_field = "username"
+
+    def get_queryset(self):
+        return User.objects.all()
+
+
 
 # class ListProductsView(generics.ListAPIView):
 #     serializer_class = ProductSerializer

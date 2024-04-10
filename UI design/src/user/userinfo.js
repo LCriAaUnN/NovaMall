@@ -1,7 +1,8 @@
 import React from 'react';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom'; 
 import './userinfo.css';
+import api from "../api";
 
 const UserInfo = () => {
   const navigate = useNavigate();
@@ -53,7 +54,7 @@ const UserInfo = () => {
                   <h2>Profile</h2>
                   <button onClick={handleEditClick} className="edit-button">Edit</button>
               </div>
-              <p><strong>Name:</strong> Jane Doe</p>
+              <p><strong>Nam≠e:</strong> Jane Doe</p>
               <p><strong>Email:</strong> janedoe@example.com</p>
               <p><strong>Location:</strong> New York, USA</p>
               {renderProfileEditForm()}

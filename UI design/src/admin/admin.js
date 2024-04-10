@@ -35,8 +35,8 @@ function Admin() {
     api
       .delete(`/user/delete/${userId}/`)
       .then((res) => {
-        if (res.status === 204) alert("Note deleted!");
-        else alert("Failed to delete note.");
+        if (res.status === 204) alert("User deleted!");
+        else alert("Failed to delete user.");
         getUsers();
       })
       .catch((error) => alert(error));
