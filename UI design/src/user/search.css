@@ -31,3 +31,10 @@
     padding: 20px;
     font-size: 1.2rem;
   }
+
+  .search-results-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    gap: 20px;
+  }

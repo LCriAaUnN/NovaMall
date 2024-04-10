@@ -25,6 +25,9 @@ import hat from './img/hat3.jpg';
 
 
 function HomePage() {
+  const [minPrice, setMinPrice] = useState('');
+  const [maxPrice, setMaxPrice] = useState('');
+
   const events = [
     {
       src: salesImage3,
@@ -114,11 +117,26 @@ const handleSearchInputChange = (event) => {
   setSearchTerm(event.target.value);
 };
 
+// const handleSearch = () => {
+//   if (searchTerm.trim() !== '') {
+//     navigate(`/search?search=${encodeURIComponent(searchTerm)}`);
+//   } else {
+//     alert('Please enter a search term.');
+//   }
+  // };
+  
 const handleSearch = () => {
-  if (searchTerm.trim() !== '') {
-    navigate(`/search?search=${encodeURIComponent(searchTerm)}`);
+  let searchQuery = `/search?search=${encodeURIComponent(searchTerm)}`;
+  if (minPrice.trim() !== '') {
+    searchQuery += `&minPrice=${encodeURIComponent(minPrice)}`;
+  }
+  if (maxPrice.trim() !== '') {
+    searchQuery += `&maxPrice=${encodeURIComponent(maxPrice)}`;
+  }
+  if (searchTerm.trim() !== '' || minPrice.trim() !== '' || maxPrice.trim() !== '') {
+    navigate(searchQuery);
   } else {
-    alert('Please enter a search term.');
+    alert('Please enter a search term or price range.');
   }
 };
 
@@ -169,6 +187,21 @@ const navigate = useNavigate();
         
     
       <div className="search-group">
+      <div className='price-inputs'>
+        <input
+        type="text"
+        placeholder="Min Price"
+        value={minPrice}
+        onChange={(e) => setMinPrice(e.target.value)}
+        style={{ width: '100%', maxWidth: '150px', boxSizing: 'border-box' }}
+      />
+      <input
+        type="text"
+        placeholder="Max Price"
+        value={maxPrice}
+        onChange={(e) => setMaxPrice(e.target.value)}
+        style={{ width: '100%', maxWidth: '150px', boxSizing: 'border-box' }}
+      /></div>
       <div className='input-wrapper'>
       <Dropdown as={ButtonGroup}>
       <Button variant="success" id="dropdown-basic">
@@ -213,6 +246,7 @@ const navigate = useNavigate();
           </Link>
           </div>
       </div>
+      
       <div className="navbar">
         <nav>
           <ul>
@@ -287,7 +321,7 @@ const navigate = useNavigate();
   </Row>
 </div>
 
-      <Container>
+  <Container>
   <Row>
     {products.map((product) => (
       <Col key={product.id} sm={6} md={4} lg={3}>
