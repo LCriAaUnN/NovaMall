@@ -9,7 +9,7 @@ const UserInfo = () => {
     const [activeTab, setActiveTab] = useState('profile');
     const [isEditing, setIsEditing] = useState(false);
     const [users, setUser] = useState([]); // State to store user data
-    const [editedUser, setEditedUser] = useState({ name: '', email: '' });
+    const [editedUser, setEditedUser] = useState({ username: '', email: '' });
   
     useEffect(() => {
       getUser();
@@ -26,27 +26,33 @@ const UserInfo = () => {
     const user = users[0] || {}; // Get the first user object from the array
     
 
-  const handleEditClick = () => {
-      setIsEditing(true);  // When the Edit button is clicked, show the edit form
-  };
+    const handleEditClick = () => {
+        setIsEditing(true);  // When the Edit button is clicked, show the edit form
+    };
 
-  const handleCancelClick = () => {
-      setIsEditing(false);  // Hide the edit form without saving changes
-  };
+    const handleCancelClick = () => {
+        setIsEditing(false);  // Hide the edit form without saving changes
+    };
 
-  const renderProfileEditForm = () => {
-    if (!isEditing) return null;
+    const renderProfileEditForm = () => {
+        if (!isEditing) return null;
 
-    // Handle form field changes and update the state
-  const handleInputChange = (e) => {
-    const { id, value } = e.target;
-    setEditedUser({ ...editedUser, [id]: value });
-  };
+        // Handle form field changes and update the state
+    const handleInputChange = (e) => {
+        const { id, value } = e.target;
+        setEditedUser({ ...editedUser, [id]: value });
+    };
 
     const handleFormSubmit = async (e) => {
         e.preventDefault();
         try {
-          const response = await api.put('', editedUser);
+            console.log('editedUser:', editedUser);
+          const response = await api.put('/user/edit/', {
+            username: editedUser.username || user.username,
+            email: editedUser.email || user.email,
+            password: "123456"
+          
+          });
           if (response.status === 200) {
             setUser([response.data]);
             setIsEditing(false);  // Hide the edit form after saving changes
@@ -60,26 +66,36 @@ const UserInfo = () => {
       };
 
     return (
-        <div className="profile-edit-form-wrapper"> {/* Wrapper for positioning */}
-            <div className="profile-edit-form">
-                <h3>Edit Profile</h3>
-                <form>
-                    <div className="form-group">
-                        <label htmlFor="name">Name:</label>
-                        <input type="text" id="name" defaultValue="ABC" />
-                    </div>
-                    <div className="form-group">
-                        <label htmlFor="email">Email:</label>
-                        <input type="email" id="email" defaultValue="ABC@example.com" />
-                    </div>
-                    <div className="form-buttons">
-                        <button type="button" onClick={handleCancelClick}>Cancel</button>
-                        <button type="submit">Save Changes</button>
-                    </div>
-                </form>
-            </div>
+  <div className="profile-edit-form-wrapper">
+    <div className="profile-edit-form">
+      <h3>Edit Profile</h3>
+      <form onSubmit={handleFormSubmit}>
+        <div className="form-group">
+          <label htmlFor="username">Name:</label>
+          <input
+            type="text"
+            id="username"
+            onChange={handleInputChange}
+          />
         </div>
-    );
+        <div className="form-group">
+          <label htmlFor="email">Email:</label>
+          <input
+            type="email"
+            id="email"
+            onChange={handleInputChange}
+          />
+        </div>
+        <div className="form-buttons">
+          <button type="button" onClick={handleCancelClick}>
+            Cancel
+          </button>
+          <button type="submit">Save Changes</button>
+        </div>
+      </form>
+    </div>
+  </div>
+);
 };
 
 const renderProfile = () => {
