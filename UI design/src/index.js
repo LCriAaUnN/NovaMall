@@ -21,6 +21,7 @@ import ProtectedRoute from "./components/ProtectedRoute";
 import AdminLogin from './user/login_admin';
 import SearchResultsPage from './user/search';
 import PaymentPage from './user/payment';
+import OrderPage from './user/order';
 
 function Logout() {
   localStorage.clear()
@@ -61,6 +62,7 @@ function App(props) {
           <Route path="/product/:id" element={<ProductDetail />} />
           <Route path="/logout" element={<Logout />} />
           <Route path="/admin_login" element={<AdminLogin />} />
+          <Route path="/order" element={<OrderPage/>} />
           
           
           <Route path="*" element={<NoMatch />} />
