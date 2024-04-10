@@ -64,11 +64,13 @@ function Admin() {
         <img src={logoImage} alt="Logo" className="admin-logo" />
         <button className={activeTab === 'users' ? 'active' : ''} onClick={() => navigate('/admin')}>User Management</button>
         <button className={activeTab === 'products' ? 'active' : ''} onClick={() => navigate('/product-management')}>Product Management</button>
-        <button className="logout-button" onClick={handleLogout}>Logout</button>
       </nav>
       <div className="admin-content">
-        <div className="admin-header">
-          {activeTab === 'users' ? 'User Management' : 'Product Management'}
+        <div className="admin-header-container">
+          <div className="admin-header">
+            {activeTab === 'users' ? 'User Management' : 'Product Management'}
+          </div>
+          <button className="logout-button" onClick={handleLogout}>Logout</button>
         </div>
         {activeTab === 'users' && (
           <Users
@@ -92,7 +94,7 @@ function Admin() {
 function Users({ users, onEdit, onRemove }) {
   return (
     <div className="user-section">
-      <input className="search-input" placeholder="Search User" />
+      {/* <input className="search-input" placeholder="Search User" /> */}
       <div className="user-table-container">
         <table>
           <thead>
@@ -124,7 +126,7 @@ function Products({ products, onEdit, onRemove }) {
   return (
     <div className="product-section">
       <div className="product-controls">
-        <input className="search-input" placeholder="Search Product" />
+        {/* <input className="search-input" placeholder="Search Product" /> */}
         <button className="add-btn">Add Product</button>
       </div>
       <div className="product-table-container">
