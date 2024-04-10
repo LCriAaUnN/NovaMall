@@ -28,7 +28,8 @@ class UserProfileView(generics.ListAPIView):
     permission_classes = [IsAuthenticated]
 
     def get_queryset(self):
-        return self.request.user
+        user =  self.request.user
+        return User.objects.filter(username=user)
 
 
 
