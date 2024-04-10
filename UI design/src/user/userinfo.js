@@ -8,39 +8,21 @@ const UserInfo = () => {
     const navigate = useNavigate();
     const [activeTab, setActiveTab] = useState('profile');
     const [isEditing, setIsEditing] = useState(false);
-    // const [user, setUser] = useState([]); // State to store user data
+    const [user, setUser] = useState([]); // State to store user data
   
-    // useEffect(() => {
-    //   getUser();
-    // }, []);
+    useEffect(() => {
+      getUser();
+    }, []);
   
-    // const getUser = () => {
+    const getUser = () => {
+        api
+          .get('/user/profile/')
+          .then((res) => res.data) 
+          .then((data) => {setUser(data); console.log(data);})
+          .catch((err) => alert(err));
+    };
 
-    //   api
-    //     .get(`/user/profile/${username}/`)
-    //     .then((res) => {
-    //       setUser(res.data); 
-    //       console.log(res.data);
-    //     })
-    //     .catch((err) => {
-    //         console.log('Error fetching user data:', err);
-    //         alert('Error fetching user data:', err);
-    //     });
-    // };
 
-//   const [users, setUsers] = useState([]);
-
-//   useEffect(() => {
-//     getUsers();
-//   }, []);
-
-//   const getUsers = (username) => {
-//     api
-//       .get(`/user/list/${username}/`)
-//       .then((res) => res.data) 
-//       .then((data) => {setUsers(data); console.log(data);})
-//       .catch((err) => alert(err));
-//   };
 
 
   const handleEditClick = () => {
@@ -84,9 +66,9 @@ const renderProfile = () => {
                 <h2>Profile</h2>
                 <button onClick={handleEditClick} className="edit-button">Edit</button>
             </div>
-            <p><strong>ID:</strong> {user?.id || 'Loading...'}</p>
-            <p><strong>Name:</strong> {user?.username || 'Loading...'}</p>
-            <p><strong>Email:</strong> {user?.email || 'Loading...'}</p>
+            <p><strong>ID:</strong> {user.id}</p>
+            <p><strong>Name:</strong> {user.username}</p>
+            <p><strong>Email:</strong> {user.email }</p>
             
             {isEditing && renderProfileEditForm()}
         </div>
