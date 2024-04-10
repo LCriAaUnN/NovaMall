@@ -9,6 +9,21 @@ const UserInfo = () => {
   const [activeTab, setActiveTab] = useState('profile');
   const [isEditing, setIsEditing] = useState(false);  // State to manage the display of the edit form
 
+  const [users, setUsers] = useState([]);
+
+  useEffect(() => {
+    getUsers();
+  }, []);
+
+  const getUsers = (username) => {
+    api
+      .get(`/user/list/${username}/`)
+      .then((res) => res.data) 
+      .then((data) => {setUsers(data); console.log(data);})
+      .catch((err) => alert(err));
+  };
+
+
   const handleEditClick = () => {
       setIsEditing(true);  // When the Edit button is clicked, show the edit form
   };
@@ -54,7 +69,7 @@ const UserInfo = () => {
                   <h2>Profile</h2>
                   <button onClick={handleEditClick} className="edit-button">Edit</button>
               </div>
-              <p><strong>Nam≠e:</strong> Jane Doe</p>
+              <p><strong>Name:</strong> Jane Doe</p>
               <p><strong>Email:</strong> janedoe@example.com</p>
               <p><strong>Location:</strong> New York, USA</p>
               {renderProfileEditForm()}
