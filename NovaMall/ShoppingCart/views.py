@@ -25,30 +25,28 @@ class CartView(generics.ListCreateAPIView):
         Cart.objects.filter(id=id, user_id=user).delete()
         return Response(status=status.HTTP_204_NO_CONTENT)
     
-    # def view_cart(self, request):
-    #     user = request.user
-    #     cart = Cart.objects.filter(user=user)
-    #     cart_serializer = CartSerializer(cart, many=True)
-    #     return Response(cart_serializer.data)
-    
     def post(self, request, id):
         user = request.user
         product_id = id
         product = Product.objects.get(id=product_id)
         price = product.price
-        Cart.objects.create(product_id=product_id, price=price, user=user)
-        return Response(status.HTTP_200_OK)
+        if product.count > 0:
+            Cart.objects.create(product_id=product_id, product_name=product.name, price=price, user=user)
+            return Response(status.HTTP_200_OK)
+        else:
+            return Response(status.HTTP_400_BAD_REQUEST)
     
-    def checkout(self,request):
-        user = request.user
-        if request.method == "POST":
-            productIDs = request.data.get("order_list")
-            if productIDs is not None:
-                for productID in productIDs:
-                    product = Product.objects.get(id=productID)
-                    Order.objects.create(product_id=product.id, price=product.price, user=user)
-                    Cart.objects.filter(product_id=product.id, user=user).delete()
-            return Response(status=status.HTTP_200_OK)
+    # def checkout(self,request):
+    #     user = request.user
+    #     cart = Cart.objects.filter(user=user)
+    #     if request.method == "POST":
+    #         productIDs = request.data.get("order_list")
+    #         if productIDs is not None:
+    #             for productID in productIDs:
+    #                 product = Product.objects.get(id=productID)
+    #                 Order.objects.create(product_id=product.id, price=product.price, user=user)
+    #                 Cart.objects.filter(product_id=product.id, user=user).delete()
+    #         return Response(status=status.HTTP_200_OK)
         
 
 # def ViewCart(request):

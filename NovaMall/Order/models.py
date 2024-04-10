@@ -1,9 +1,10 @@
 from django.db import models
 from User.models import User
+from django.db.models import JSONField
 
 # Create your models here.
 class Order(models.Model):
-    product_id = models.IntegerField()
+    productIDs = JSONField()
     price = models.FloatField()
     status_choices = (
         (0, "not Paid"),

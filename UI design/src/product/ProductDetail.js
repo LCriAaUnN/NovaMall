@@ -4,7 +4,7 @@ import api from "../api";
 import { Link } from 'react-router-dom';
 import { useParams } from 'react-router-dom';
 import { Carousel } from 'react-bootstrap'; 
-import { products } from './data.js'; 
+// import { products } from './data.js'; 
 import './ProductDetail.css'; 
 
 
@@ -13,16 +13,30 @@ function ProductDetail() {
     let { id } = useParams();
     const [wishlist, setWishlist] = useState(false);
     const [cartMessage, setCartMessage] = useState('');
-    const product = products.find(product => product.id === parseInt(id));
+    const [product, setProduct] = useState('');
+    //const product = products.find(product => product.id === parseInt(id));
   
     const handleWishlistToggle = () => setWishlist(!wishlist);
     
+    useEffect(() => {
+      getProduct();
+    }, [])
+
+    const getProduct = () => {
+      api
+        .get(`/product/${id}/`)
+        .then((res) => res.data)
+        .then((data) => {setProduct(data); console.log(data)})
+        .catch((err) => alert(err));
+    }
+
     // 显示 "Added to cart" 的信息框
     const handleAddToCart = () => {
       api
         .post(`/cart/add/${id}/`)
         .then((res) => {
           if (res.status === 200) alert("Item added successfully");
+          else if (res.status == 400) alert("Item out of stock");
           else alert("Failed to add item");
         })
         .catch((err) => alert(err));
