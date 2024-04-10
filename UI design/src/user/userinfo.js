@@ -5,9 +5,28 @@ import './userinfo.css';
 import api from "../api";
 
 const UserInfo = () => {
-  const navigate = useNavigate();
-  const [activeTab, setActiveTab] = useState('profile');
-  const [isEditing, setIsEditing] = useState(false);  // State to manage the display of the edit form
+    const navigate = useNavigate();
+    const [activeTab, setActiveTab] = useState('profile');
+    const [isEditing, setIsEditing] = useState(false);
+    // const [user, setUser] = useState([]); // State to store user data
+  
+    // useEffect(() => {
+    //   getUser();
+    // }, []);
+  
+    // const getUser = () => {
+
+    //   api
+    //     .get(`/user/profile/${username}/`)
+    //     .then((res) => {
+    //       setUser(res.data); 
+    //       console.log(res.data);
+    //     })
+    //     .catch((err) => {
+    //         console.log('Error fetching user data:', err);
+    //         alert('Error fetching user data:', err);
+    //     });
+    // };
 
 //   const [users, setUsers] = useState([]);
 
@@ -42,15 +61,11 @@ const UserInfo = () => {
                 <form>
                     <div className="form-group">
                         <label htmlFor="name">Name:</label>
-                        <input type="text" id="name" defaultValue="Jane Doe" />
+                        <input type="text" id="name" defaultValue="ABC" />
                     </div>
                     <div className="form-group">
                         <label htmlFor="email">Email:</label>
-                        <input type="email" id="email" defaultValue="janedoe@example.com" />
-                    </div>
-                    <div className="form-group">
-                        <label htmlFor="location">Location:</label>
-                        <input type="text" id="location" defaultValue="New York, USA" />
+                        <input type="email" id="email" defaultValue="ABC@example.com" />
                     </div>
                     <div className="form-buttons">
                         <button type="button" onClick={handleCancelClick}>Cancel</button>
@@ -62,20 +77,21 @@ const UserInfo = () => {
     );
 };
 
-  const renderProfile = () => {
-      return (
-          <div className="tab-content">
-              <div className="profile-header">
-                  <h2>Profile</h2>
-                  <button onClick={handleEditClick} className="edit-button">Edit</button>
-              </div>
-              <p><strong>Name:</strong> Jane Doe</p>
-              <p><strong>Email:</strong> janedoe@example.com</p>
-              <p><strong>Location:</strong> New York, USA</p>
-              {renderProfileEditForm()}
-          </div>
-      );
-  };
+const renderProfile = () => {
+    return (
+        <div className="tab-content">
+            <div className="profile-header">
+                <h2>Profile</h2>
+                <button onClick={handleEditClick} className="edit-button">Edit</button>
+            </div>
+            <p><strong>ID:</strong> {user?.id || 'Loading...'}</p>
+            <p><strong>Name:</strong> {user?.username || 'Loading...'}</p>
+            <p><strong>Email:</strong> {user?.email || 'Loading...'}</p>
+            
+            {isEditing && renderProfileEditForm()}
+        </div>
+    );
+};
 
   const renderContent = () => {
       switch (activeTab) {
