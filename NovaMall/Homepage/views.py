@@ -1,36 +1,27 @@
+from django.db.models import Q
 from django.shortcuts import render
 from django.shortcuts import get_object_or_404
-from rest_framework import generics, filters
-from .models import Category, Product, Event
-from .serializers import CategorySerializer, ProductSerializer, EventSerializer
+from rest_framework import generics
+from rest_framework.permissions import AllowAny
+from rest_framework.response import Response
+from ShopPage.models import Product
+from ShopPage.serializer import ProductSerializer
 
-class CategoryList(generics.ListCreateAPIView):
-  queryset = Category.objects.all()
-  serializer_class = CategorySerializer 
-
-class ProductList(generics.ListCreateAPIView):
-  queryset = Product.objects.all()
+class ProductSearchView(generics.ListAPIView):
   serializer_class = ProductSerializer
-  filter_backends = [filters.SearchFilter]
-  search_fields = ['title', 'category__name']
+  permission_classes = [AllowAny]
 
-  def get_queryset(self):
-    queryset = self.queryset
-    category = self.request.query_params.get('category')
-    if category is not None:
-      queryset = queryset.filter(category__name=category)
-    return queryset
+  def get(self, request, *args, **kwargs):
+    searchTerm = kwargs['searchTerm']
+    min = kwargs['min']
+    max = kwargs['max']
+    cagetory = kwargs['cagetory']
+    if cagetory == 'All':
+      products = Product.objects.filter(Q(name__icontains=searchTerm) & Q(price__gte=min) & Q(price__lte=max))
+    else:
+      products = Product.objects.filter(Q(name__icontains=searchTerm) & Q(price__gte=min) & Q(price__lte=max) & Q(catagory=cagetory))
+    product_serializer = ProductSerializer(products, many=True)
+    return Response(product_serializer.data)
 
-class ProductDetail(generics.RetrieveUpdateDestroyAPIView):
-  queryset = Product.objects.all()
-  serializer_class = ProductSerializer  
-
-class EventList(generics.ListCreateAPIView):
-  queryset = Event.objects.all()
-  serializer_class = EventSerializer  
-
-class ProductSearch(generics.ListAPIView):
-  queryset = Product.objects.all()
-  serializer_class = ProductSerializer
-  filter_backends = [filters.SearchFilter]
-  search_fields = ['title', 'id']
+    
+  

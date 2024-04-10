@@ -9,6 +9,7 @@ const UserInfo = () => {
     const [activeTab, setActiveTab] = useState('profile');
     const [isEditing, setIsEditing] = useState(false);
     const [users, setUser] = useState([]); // State to store user data
+    const [editedUser, setEditedUser] = useState({ name: '', email: '' });
   
     useEffect(() => {
       getUser();
@@ -36,6 +37,28 @@ const UserInfo = () => {
   const renderProfileEditForm = () => {
     if (!isEditing) return null;
 
+    // Handle form field changes and update the state
+  const handleInputChange = (e) => {
+    const { id, value } = e.target;
+    setEditedUser({ ...editedUser, [id]: value });
+  };
+
+    const handleFormSubmit = async (e) => {
+        e.preventDefault();
+        try {
+          const response = await api.put('', editedUser);
+          if (response.status === 200) {
+            setUser([response.data]);
+            setIsEditing(false);  // Hide the edit form after saving changes
+            
+          } else {
+            console.error('Failed to update profile. Status code:', response.status);
+          }
+        } catch (error) {
+          console.error('There was an error updating the profile:', error);
+        }
+      };
+
     return (
         <div className="profile-edit-form-wrapper"> {/* Wrapper for positioning */}
             <div className="profile-edit-form">
@@ -43,11 +66,11 @@ const UserInfo = () => {
                 <form>
                     <div className="form-group">
                         <label htmlFor="name">Name:</label>
-                        <input type="text" id="name" />
+                        <input type="text" id="name" defaultValue="ABC" />
                     </div>
                     <div className="form-group">
                         <label htmlFor="email">Email:</label>
-                        <input type="email" id="email"  />
+                        <input type="email" id="email" defaultValue="ABC@example.com" />
                     </div>
                     <div className="form-buttons">
                         <button type="button" onClick={handleCancelClick}>Cancel</button>
