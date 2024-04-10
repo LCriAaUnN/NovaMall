@@ -123,11 +123,12 @@ function Users({ users, onEdit, onRemove }) {
 }
 
 function Products({ products, onEdit, onRemove }) {
+  const navigate = useNavigate();
   return (
     <div className="product-section">
       <div className="product-controls">
         {/* <input className="search-input" placeholder="Search Product" /> */}
-        <button className="add-btn">Add Product</button>
+        <button className="add-btn" onClick={() => navigate('/addproduct')}>Add Product</button>
       </div>
       <div className="product-table-container">
         <table>
