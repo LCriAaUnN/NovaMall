@@ -60,35 +60,25 @@ const UserInfo = () => {
       };
 
     return (
-        <div className="profile-edit-form-wrapper">
-        <div className="profile-edit-form">
-          <h3>Edit Profile</h3>
-          <form onSubmit={handleFormSubmit}>
-            <div className="form-group">
-              <label htmlFor="name">Name:</label>
-              <input
-                type="text"
-                id="name"
-                value={editedUser.name}
-                onChange={handleInputChange}
-              />
+        <div className="profile-edit-form-wrapper"> {/* Wrapper for positioning */}
+            <div className="profile-edit-form">
+                <h3>Edit Profile</h3>
+                <form>
+                    <div className="form-group">
+                        <label htmlFor="name">Name:</label>
+                        <input type="text" id="name" defaultValue="ABC" />
+                    </div>
+                    <div className="form-group">
+                        <label htmlFor="email">Email:</label>
+                        <input type="email" id="email" defaultValue="ABC@example.com" />
+                    </div>
+                    <div className="form-buttons">
+                        <button type="button" onClick={handleCancelClick}>Cancel</button>
+                        <button type="submit">Save Changes</button>
+                    </div>
+                </form>
             </div>
-            <div className="form-group">
-              <label htmlFor="email">Email:</label>
-              <input
-                type="email"
-                id="email"
-                value={editedUser.email}
-                onChange={handleInputChange}
-              />
-            </div>
-            <div className="form-buttons">
-              <button type="button" onClick={handleCancelClick}>Cancel</button>
-              <button type="submit">Save Changes</button>
-            </div>
-          </form>
         </div>
-      </div>
     );
 };
 
