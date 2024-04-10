@@ -18,6 +18,7 @@ from django.contrib import admin
 from django.urls import path, include
 from ShoppingCart.views import CartView
 from Order.views import OrderView
+from ShopPage.views import ProductView
 from User.views import CreateUserView
 from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView
 
@@ -31,7 +32,8 @@ urlpatterns = [
     path('order/', OrderView.as_view(), name="order"),
     path('order/create/', OrderView.as_view(), name="create_order"),
     path('order/update/', OrderView.as_view(), name='update_order'),
-    # path('order/<int:cart_id>/', OrderView.as_view(), name="add_to_order"),
+    # product
+    path('product/<int:id>/', ProductView.as_view(), name="product"),
     path('user/register/', CreateUserView.as_view(), name="register"),
     path("token/", TokenObtainPairView.as_view(), name="get_token"),
     path("token/refresh/", TokenRefreshView.as_view(), name="refresh_token"),
