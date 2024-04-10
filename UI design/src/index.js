@@ -22,6 +22,7 @@ import AdminLogin from './user/login_admin';
 import SearchResultsPage from './user/search';
 import PaymentPage from './user/payment';
 import OrderPage from './user/order';
+import AddProduct from "./admin/addproduct";
 
 function Logout() {
   localStorage.clear()
@@ -63,6 +64,7 @@ function App(props) {
           <Route path="/logout" element={<Logout />} />
           <Route path="/admin_login" element={<AdminLogin />} />
           <Route path="/order" element={<OrderPage/>} />
+          <Route path="/addproduct" element={<AddProduct/>} />
           
           
           <Route path="*" element={<NoMatch />} />
