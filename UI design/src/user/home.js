@@ -125,6 +125,21 @@ const handleSearchInputChange = (event) => {
 //   }
   // };
   
+// const handleSearch = () => {
+//   let searchQuery = `/search?search=${encodeURIComponent(searchTerm)}`;
+//   if (minPrice.trim() !== '') {
+//     searchQuery += `&minPrice=${encodeURIComponent(minPrice)}`;
+//   }
+//   if (maxPrice.trim() !== '') {
+//     searchQuery += `&maxPrice=${encodeURIComponent(maxPrice)}`;
+//   }
+//   if (searchTerm.trim() !== '' || minPrice.trim() !== '' || maxPrice.trim() !== '') {
+//     navigate(searchQuery);
+//   } else {
+//     alert('Please enter a search term or price range.');
+//   }
+  // };
+
 const handleSearch = () => {
   let searchQuery = `/search?search=${encodeURIComponent(searchTerm)}`;
   if (minPrice.trim() !== '') {
@@ -133,10 +148,15 @@ const handleSearch = () => {
   if (maxPrice.trim() !== '') {
     searchQuery += `&maxPrice=${encodeURIComponent(maxPrice)}`;
   }
-  if (searchTerm.trim() !== '' || minPrice.trim() !== '' || maxPrice.trim() !== '') {
+
+  if (dropdownCategory && dropdownCategory !== 'All') {
+    searchQuery += `&category=${encodeURIComponent(dropdownCategory)}`;
+  }
+  
+  if (searchTerm.trim() !== '' || minPrice.trim() !== '' || maxPrice.trim() !== '' || dropdownCategory !== 'All') {
     navigate(searchQuery);
   } else {
-    alert('Please enter a search term or price range.');
+    alert('Please enter a search term, price range, or select a category.');
   }
 };
 

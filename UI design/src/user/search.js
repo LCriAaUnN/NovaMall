@@ -32,7 +32,7 @@ const products = [
     title: 'The Black Book of Colors',
     price: 208,
     imageUrl: book,
-    category: 'Clothing', 
+    category: 'Book', 
   },
   {
     id: 4,
@@ -60,7 +60,7 @@ const products = [
     title: 'The Black Book of Colors',
     price: 208,
     imageUrl: book,
-    category: 'Clothing', 
+    category: 'Book', 
   },
   {
     id: 4,
@@ -81,12 +81,14 @@ function SearchResultsPage() {
     const searchTerm = searchParams.get('search');
     const minPrice = parseFloat(searchParams.get('minPrice')) || 0;
     const maxPrice = parseFloat(searchParams.get('maxPrice')) || Infinity;
+    const category = searchParams.get('category');
 
     // 在客户端进行搜索和筛选
     const filteredResults = products.filter(product => {
       const matchesTerm = searchTerm ? product.title.toLowerCase().includes(searchTerm.toLowerCase()) : true;
       const matchesPrice = product.price >= minPrice && product.price <= maxPrice;
-      return matchesTerm && matchesPrice;
+      const matchesCategory = category ? product.category === category : true;
+      return matchesTerm && matchesPrice && matchesCategory;
     });
 
     setSearchResults(filteredResults);
