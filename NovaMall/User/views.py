@@ -33,6 +33,9 @@ class UserProfileView(generics.ListAPIView):
 
 
 
+
+
+
 # class ListProductsView(generics.ListAPIView):
 #     serializer_class = ProductSerializer
 #     permission_classes = [IsAuthenticated]
