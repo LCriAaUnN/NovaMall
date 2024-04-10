@@ -49,23 +49,23 @@ function ProductDetail() {
   return (
     <div className="product-detail-container">
       {/* Carousel 位置 */}
-      <Carousel className="product-image-carousel">
-        {product.imageUrl.map((image, index) => (
+      {/* <Carousel className="product-image-carousel">
+        {product.image.map((image, index) => (
           <Carousel.Item key={index}>
             <div className="carousel-image-container">
               <img className="carousel-image" src={image} alt={`Slide ${index}`} />
             </div>
           </Carousel.Item>
         ))}
-      </Carousel>
+      </Carousel> */}
        {/* 商品信息 */}
       <div className="product-info">
-        <h2 className="product-title">{product.title}</h2>
+        <h2 className="product-title">{product.name}</h2>
         <p className="product-price">HKD ${product.price}</p>
-        <p className="product-category">Category: {product.category}</p>
+        <p className="product-category">Category: {product.catagory}</p>
   
         <p className="product-description">Description: {product.description}</p>
-        <p className="product-stock">In stock: {product.stock}</p>
+        <p className="product-stock">In stock: {product.count}</p>
       
         {/* Wishlist 和 Shopping Cart 按钮位置 */}
         <div className="product-actions">
