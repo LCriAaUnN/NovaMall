@@ -10,7 +10,7 @@ import { Link } from 'react-router-dom';
 import './home.css';
 import Dropdown from 'react-bootstrap/Dropdown'
 import Carousel from 'react-bootstrap/Carousel';
-import { FaHeart, FaSearch, FaShoppingCart,  FaUserCircle, FaSignOutAlt } from 'react-icons/fa';
+import { FaHeart, FaSearch, FaShoppingCart,  FaUserCircle, FaSignOutAlt, FaRegListAlt } from 'react-icons/fa';
 import salesImage from './img/easter5.webp';
 import salesImage2 from './img/sales_banners.jpg';
 import salesImage3 from './img/easter4.webp';
@@ -192,7 +192,10 @@ const navigate = useNavigate();
             </Link>
             <Link to="/cart" className="icon-link">
               <FaShoppingCart className="icon" />
-            </Link>
+          </Link>
+          <Link to="/order" className="icon-link">
+          <FaRegListAlt className="icon" />
+          </Link>
           </div>
       </div>
       <div className="navbar">
