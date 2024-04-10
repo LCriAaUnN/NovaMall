@@ -43,11 +43,11 @@ const UserInfo = () => {
                 <form>
                     <div className="form-group">
                         <label htmlFor="name">Name:</label>
-                        <input type="text" id="name" defaultValue="ABC" />
+                        <input type="text" id="name" />
                     </div>
                     <div className="form-group">
                         <label htmlFor="email">Email:</label>
-                        <input type="email" id="email" defaultValue="ABC@example.com" />
+                        <input type="email" id="email"  />
                     </div>
                     <div className="form-buttons">
                         <button type="button" onClick={handleCancelClick}>Cancel</button>
