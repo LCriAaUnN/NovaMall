@@ -9,19 +9,19 @@ const UserInfo = () => {
   const [activeTab, setActiveTab] = useState('profile');
   const [isEditing, setIsEditing] = useState(false);  // State to manage the display of the edit form
 
-  const [users, setUsers] = useState([]);
+//   const [users, setUsers] = useState([]);
 
-  useEffect(() => {
-    getUsers();
-  }, []);
+//   useEffect(() => {
+//     getUsers();
+//   }, []);
 
-  const getUsers = (username) => {
-    api
-      .get(`/user/list/${username}/`)
-      .then((res) => res.data) 
-      .then((data) => {setUsers(data); console.log(data);})
-      .catch((err) => alert(err));
-  };
+//   const getUsers = (username) => {
+//     api
+//       .get(`/user/list/${username}/`)
+//       .then((res) => res.data) 
+//       .then((data) => {setUsers(data); console.log(data);})
+//       .catch((err) => alert(err));
+//   };
 
 
   const handleEditClick = () => {
