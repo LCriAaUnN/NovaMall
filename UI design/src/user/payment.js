@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import api from "../api";
+import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 import './payment.css'; 
 
@@ -23,7 +25,18 @@ function PaymentPage() {
 
   const closeModal = () => {
     setShowSuccessModal(false);
-    navigate('/home');
+    navigate('/order');
+  };
+
+  const changeOrderStatus = () => {
+    api
+      .post("/order/update/")
+      .then((res) => {
+        if (res.status === 200) alert("Order status updated successfully");
+        else alert("Failed to update order status");
+        closeModal();
+      })
+      .catch((err) => alert(err));
   };
 
   return (
@@ -73,7 +86,7 @@ function PaymentPage() {
           Confirm Payment
         </button>
       </form>
-      {showSuccessModal && <SuccessModal onClose={closeModal} />}
+      {showSuccessModal && <SuccessModal onClose={changeOrderStatus} />}
     </div>
   );
 }

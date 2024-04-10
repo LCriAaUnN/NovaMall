@@ -23,6 +23,7 @@ function ProductDetail() {
         .post(`/cart/add/${id}/`)
         .then((res) => {
           if (res.status === 200) alert("Item added successfully");
+          else if (res.status == 400) alert("Item out of stock");
           else alert("Failed to add item");
         })
         .catch((err) => alert(err));

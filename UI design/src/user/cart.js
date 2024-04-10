@@ -1,18 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import api from "../api";
 import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import './cart.css';
-
-// Fake cart data
-// const initialCartItems = [
-//   { id: 1, title: 'Product 1', price: 10.99 },
-//   { id: 2, title: 'Product 2', price: 12.99 },
-//   { id: 3, title: 'Product 3', price: 9.99 },
-// ];
 
 function CartPage() {
     const [cartItems, setCartItems] = useState("");
-
+    const navigate = useNavigate();
+    
     useEffect(() => {
         getCartItems();
     
@@ -38,18 +33,17 @@ function CartPage() {
             
     }
 
-    // const createCart = (e) => {
-    //     e.preventDefault();
-    //     api
-    //         .post("/cart/", {itemName, price})
-    //         .then((res) => {
-    //             if (res.status === 201) alert("Item added successfully");
-    //             else alert("Failed to add item");
-    //             getCartItems();
-    //         })
-    //         .catch((err) => alert(err));
-            
-    // }
+    const createOrder = () => {
+        api
+            .post("/order/create/")
+            .then((res) => {
+                if (res.status === 200) alert("Order created successfully");
+                else alert("Failed to create order");
+                navigate('/payment')
+            })
+            .catch((err) => alert(err));
+
+    }
 
     // Calculate the total price of the cart
     const calculateTotal = (items) => {
@@ -72,7 +66,7 @@ function CartPage() {
                               <tbody>
                                   {cartItems.map((item) => (
                                       <tr key={item.id}>
-                                          <td>{item.title}</td>
+                                          <td>{item.product_name}</td>
                                           <td>${item.price}</td>
                                           <td>
                                               <button onClick={() => deleteItem(item.id)}>Remove</button>
@@ -84,7 +78,7 @@ function CartPage() {
                           <div className="cart-total">
                               Total: ${calculateTotal(cartItems)}
                           </div>
-                          <button className="checkout-button" onClick={() => navigate('/payment')}>Checkout</button>
+                          <button className="checkout-button" onClick={() => createOrder()}>Checkout</button>
                       </div>
                   ) : (
                       <p>Your cart is empty.</p>
@@ -93,20 +87,6 @@ function CartPage() {
                 
           );
 }
-
-// function CartPage() {
-//   // State for cart items
-//   const [cartItems, setCartItems] = useState(initialCartItems);
-
-//   // Function to remove item from cart
-//   const removeFromCart = (productId) => {
-//     setCartItems(cartItems.filter((item) => item.id !== productId));
-//   };
-
-
-
-//   
-// }
 
 export default CartPage;
 
