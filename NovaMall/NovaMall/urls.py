@@ -34,8 +34,8 @@ urlpatterns = [
     path('order/create/', OrderView.as_view(), name="create_order"),
     path('order/update/', OrderView.as_view(), name='update_order'),
     # product
-    path('products/All/', ProductSearchView.as_view(), name='homepage_products'),
-    path('products/<str:navbarCategory>', ProductSearchView.as_view(), name='homepage_products'),
+    # path('products/All/', ProductSearchView.as_view(), name='homepage_products'),
+    path('products/<str:navbarCategory>/', ProductSearchView.as_view(), name='homepage_products'),
     path('product/<int:id>/', ProductView.as_view(), name="product"),
     path('user/register/', CreateUserView.as_view(), name="register"),
     path("token/", TokenObtainPairView.as_view(), name="get_token"),
