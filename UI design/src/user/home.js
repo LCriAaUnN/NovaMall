@@ -32,20 +32,20 @@ function HomePage() {
     {
       src: salesImage3,
       alt: 'Event 1',
-      caption: 'Easter Sale!',
+      caption: 'Easter Sale !',
       description: 'Extra 20% off daily Easter Deals with code EASTER20'
     },
     {
       src: salesImage,
       alt: 'Event 2',
-      caption: 'Event 2 Caption',
-      description: 'Event 2 Description'
+      caption: 'Easter Sale Last Call !!',
+      description: 'Shop now and make the most of these amazing discounts while supplies last!'
     },
     {
       src: salesImage2,
       alt: 'Event 3',
-      caption: 'Event 2 Caption',
-      description: 'Event 2 Description'
+      caption: 'BIG SALE !!!',
+      description: 'This is your chance to snag incredible bargains with up to 50% off on select products.'
     },
 
 
