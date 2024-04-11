@@ -53,7 +53,7 @@ function App(props) {
           <Route path="/search" element={<SearchResultsPage />} />
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
-          <Route path="/user" element={<UserInfo/>} />
+          <Route path="/user" element={<ProtectedRoute><UserInfo/></ProtectedRoute>} />
           <Route path="/cart" element={<ProtectedRoute><CartPage/></ProtectedRoute>} />
           <Route path="/payment" element={<ProtectedRoute><PaymentPage /></ProtectedRoute>} />
           <Route path="/wishlist" element={<ProtectedRoute><WishlistPage /></ProtectedRoute>} />
