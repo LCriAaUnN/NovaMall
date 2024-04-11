@@ -168,24 +168,26 @@ const navigate = useNavigate();
         
     
       <div className="search-group">
-      <div className='price-inputs'>
-        <input
+      <div style={{ display: 'flex', alignItems: 'center', gap: '5px', marginLeft: '0' }}>
+      <input
         type="text"
         placeholder="Min Price"
         value={minPrice}
         onChange={(e) => setMinPrice(e.target.value)}
-        style={{ width: '100%', maxWidth: '150px', boxSizing: 'border-box' }}
+        style={{ width: '100%', maxWidth: '100px', boxSizing: 'border-box', backgroundColor: '#f2f2f2', border: 'none', textAlign: 'center', borderRadius: '5px', height: '30px' }}
       />
+      <span style={{ margin: '0 5px' }}>-</span>
       <input
         type="text"
         placeholder="Max Price"
         value={maxPrice}
         onChange={(e) => setMaxPrice(e.target.value)}
-        style={{ width: '100%', maxWidth: '150px', boxSizing: 'border-box' }}
-      /></div>
+        style={{ width: '100%', maxWidth: '100px', boxSizing: 'border-box', backgroundColor: '#f2f2f2', border: 'none', textAlign: 'center',borderRadius: '5px', height: '30px' }}
+      />
+      </div>
       <div className='input-wrapper'>
       <Dropdown as={ButtonGroup}>
-      <Button variant="success" id="dropdown-basic">
+      <Button variant="success" id="dropdown-basic" style={{ backgroundColor: '#f2f2f2', width: '120px', maxWidth: '200px', height: '30px'}}>
         <span className="category-button-text">{dropdownCategory}</span>
       </Button>
       <Dropdown.Toggle split variant="success" id="dropdown-split-basic" />
@@ -209,8 +211,23 @@ const navigate = useNavigate();
       </Dropdown.Menu>
       </Dropdown>
       
-        <FaSearch id='search-icon'/>
-        <input type="text" placeholder="Search products" value={searchTerm} onChange={handleSearchInputChange}/>
+      <FaSearch id='search-icon' style={{ fontSize: '20px', lineHeight: '30px' }}/>
+        <input
+        type="text"
+        placeholder="Search products"
+        value={searchTerm}
+        onChange={handleSearchInputChange}
+        style={{
+          width: '300px', // 根据需要调整宽度
+          height: '40px', // 增加高度
+          borderRadius: '25px', // 圆角效果
+          border: '1px solid #ccc', // 可选，为了更好的视觉效果可能需要设置边框
+          marginLeft: '0', // 如果需要，调整左边距以向左移动
+          marginRight: '10px', // 根据布局调整右边距
+          border: 'none',
+          backgroundColor: '#f2f2f2'
+        }}
+      />
         <button style={{ backgroundColor: '#080808' }} onClick={handleSearch}>Search</button>
         </div>
         </div>
@@ -228,7 +245,7 @@ const navigate = useNavigate();
           </div>
       </div>
       
-      <div className="navbar">
+      {/* <div className="navbar">
         <nav>
           <ul>
             <li>
@@ -246,10 +263,9 @@ const navigate = useNavigate();
             <li>
               <a href="#" onClick={() => handleNavbarCategoryChange('Accessories')}>Accessories</a>
             </li>
-            {/* Add more category links as needed */}
           </ul>
         </nav>
-      </div>
+      </div> */}
 
       <div className="login-button">
           <Link to="/login">
@@ -265,7 +281,7 @@ const navigate = useNavigate();
           </button>
         </div>
 
-      <div className="banner">
+        <div className="banner" style={{ marginBottom: '-20px' }}>
         <Carousel className="custom-carousel">
           {events.map((event, idx) => (
             <Carousel.Item key={idx}>
@@ -284,7 +300,30 @@ const navigate = useNavigate();
           </Carousel>
       </div>
 
-      <div className="category-section">
+      <div className="navbar">
+        <nav style={{ padding: '10px 0' }}> {/* 增加内边距来增加高度 */}
+          <ul style={{ display: 'flex', justifyContent: 'space-between' }}> {/* 使用flex布局来分散类别 */}
+            <li style={{ marginRight: '20px' }}> {/* 增加右边距来分开类别 */}
+              <a href="#" onClick={() => handleNavbarCategoryChange('All')}>All</a>
+            </li>
+            <li style={{ marginRight: '20px' }}>
+              <a href="#" onClick={() => handleNavbarCategoryChange('Electronics')}>Electronics</a>
+            </li>
+            <li style={{ marginRight: '20px' }}>
+              <a href="#" onClick={() => handleNavbarCategoryChange('Clothings')}>Clothings</a>
+            </li>
+            <li style={{ marginRight: '20px' }}>
+              <a href="#" onClick={() => handleNavbarCategoryChange('Books')}>Books</a>
+            </li>
+            <li style={{ marginRight: '20px' }}>
+              <a href="#" onClick={() => handleNavbarCategoryChange('Accessories')}>Accessories</a>
+            </li>
+            {/* Add more category links as needed */}
+          </ul>
+        </nav>
+      </div>
+
+      {/* <div className="category-section">
   <Row>
     {categories.map((category, index) => (
       <Col key={index} sm={6} md={4} lg={3}>
@@ -300,7 +339,7 @@ const navigate = useNavigate();
       </Col>
     ))}
   </Row>
-</div>
+</div> */}
 
   <Container>
   <Row>
