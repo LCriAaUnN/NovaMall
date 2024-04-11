@@ -45,8 +45,10 @@ function SearchResultsPage() {
   return (
     <div className="search-results-container">
       <Button variant="secondary" onClick={navigateBack} className="mb-3">Back to Home</Button>
+      <Row>
       {searchResults.length > 0 ? (
-        searchResults.map(product => (
+          searchResults.map(product => (
+            <Col key={product.id} sm={6} md={4} lg={3}>
           <Card key={product.id} style={{ width: '18rem', margin: '10px' }}>
             <Card.Img variant="top" src={"http://127.0.0.1:8000"+product.image} />
             <Card.Body>
@@ -56,11 +58,13 @@ function SearchResultsPage() {
                 <Button style={{ backgroundColor: '#080808' }}>View Details</Button>
               </Link>
             </Card.Body>
-          </Card>
+              </Card>
+              </Col>
         ))
       ) : (
         noResultsContent
-      )}
+        )}
+        </Row>
     </div>
   );
 }
