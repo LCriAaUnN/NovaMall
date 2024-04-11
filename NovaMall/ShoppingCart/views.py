@@ -22,7 +22,11 @@ class CartView(generics.ListCreateAPIView):
     
     def delete(self, request, id):
         user = request.user
+        cart = Cart.objects.get(id=id)
+        product_id = cart.product_id
+        product = Product.objects.get(id=product_id)
         Cart.objects.filter(id=id, user_id=user).delete()
+        Product.objects.filter(id=product_id).update(count=product.count+1)
         return Response(status=status.HTTP_204_NO_CONTENT)
     
     def post(self, request, id):
@@ -32,6 +36,7 @@ class CartView(generics.ListCreateAPIView):
         price = product.price
         if product.count > 0:
             Cart.objects.create(product_id=product_id, product_name=product.name, price=price, user=user)
+            Product.objects.filter(id=product_id).update(count=product.count-1)
             return Response(status=status.HTTP_200_OK)
         else:
             return Response(status=status.HTTP_204_NO_CONTENT)
