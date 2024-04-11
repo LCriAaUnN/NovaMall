@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import api from "../api";
 import { useLocation, useNavigate, Link } from 'react-router-dom';
-import { Button, Card } from 'react-bootstrap';
+import { Container, Row, Col, Card, Button } from 'react-bootstrap';
 
 function SearchResultsPage() {
   const [searchResults, setSearchResults] = useState([]);
