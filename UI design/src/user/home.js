@@ -318,6 +318,9 @@ const navigate = useNavigate();
             <li style={{ marginRight: '20px' }}>
               <a href="#" onClick={() => handleNavbarCategoryChange('Accessories')}>Accessories</a>
             </li>
+            <li style={{ marginRight: '20px' }}>
+              <a href="#" onClick={() => handleNavbarCategoryChange('Recommendation')}>Recommendation</a>
+            </li>
             {/* Add more category links as needed */}
           </ul>
         </nav>
