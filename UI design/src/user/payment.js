@@ -23,6 +23,10 @@ function PaymentPage() {
     setShowSuccessModal(true);
   };
 
+  const handleBack = () => {
+    navigate('/home'); // 假设'/'是首页的路由
+  };
+
   const closeModal = () => {
     setShowSuccessModal(false);
     navigate('/order');
@@ -41,6 +45,7 @@ function PaymentPage() {
 
   return (
     <div className="payment-page">
+      <button className="back-button" onClick={handleBack}>Back</button>
       <h1>Payment Information</h1>
       <form onSubmit={handlePaymentSubmission}>
       <div className="form-group">
@@ -51,8 +56,8 @@ function PaymentPage() {
             name="cardNumber"
             value={paymentDetails.cardNumber}
             onChange={handleInputChange}
-            placeholder="1234 5678 9012 3456"
-            maxLength="16"
+            placeholder="xxxx xxxx xxxx xxxx"
+            maxLength="19"
             required
           />
         </div>
