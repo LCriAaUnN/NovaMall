@@ -21,12 +21,15 @@ function Admin() {
     getUsers();
   }, []);
 
+  useEffect(() => {
+    getProducts();
+  }, []);
 
   const getUsers = () => {
     api
       .get('/user/list/')
       .then((res) => res.data) 
-      .then((data) => {setUsers(data); console.log(data);})
+      .then((data) => {setUsers(data);})
       .catch((err) => alert(err));
   };
 
@@ -42,10 +45,23 @@ function Admin() {
       .catch((error) => alert(error));
   };
 
+  const getProducts = () => {
+    api.get('/user/list_products/')
+      .then((res) => res.data) 
+      .then((data) => {setProducts(data); console.log(data);})
+      .catch((err) => alert(err));
+  };
+
   // Function to remove product
   const handleRemoveProduct = (productId) => {
-    console.log('Product removed, ID:', productId);
-
+    api
+    .delete(`/user/delete_product/${productId}/`)
+    .then((res) => {
+      if (res.status === 204) alert("Product deleted!");
+      else alert("Failed to delete product.");
+      getProducts();
+    })
+    .catch((error) => alert(error));
   };
 
   const handleLogout = () => {

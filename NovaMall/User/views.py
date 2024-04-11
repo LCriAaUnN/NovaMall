@@ -3,6 +3,8 @@ from django.contrib.auth.models import User
 from rest_framework import generics
 from .serializer import UserSerializer
 from rest_framework.permissions import IsAuthenticated, AllowAny
+from ShopPage.models import Product
+from ShopPage.serializer import ProductSerializer
 
 class CreateUserView(generics.CreateAPIView):
     queryset = User.objects.all()
@@ -39,14 +41,14 @@ class EditUserView(generics.UpdateAPIView):
         return User.objects.get(id=user.id)
 
 
-# class ListProductsView(generics.ListAPIView):
-#     serializer_class = ProductSerializer
-#     permission_classes = [IsAuthenticated]
-#     queryset = User.objects.all()
+class ListProductsView(generics.ListAPIView):
+    serializer_class = ProductSerializer
+    permission_classes = [AllowAny]
+    queryset = Product.objects.all()
 
-#     def perform_create(self, serializer):
-#         if serializer.is_valid():
-#             serializer.save(owner=self.request.user)
-#         else: 
-#             print(serializer.errors)
+
+class ProductDelete(generics.DestroyAPIView):
+    queryset = Product.objects.all()
+    serializer_class = ProductSerializer
+    permission_classes = [IsAuthenticated]
 
