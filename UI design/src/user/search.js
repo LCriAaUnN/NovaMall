@@ -48,7 +48,8 @@ function SearchResultsPage() {
       <Row>
       {searchResults.length > 0 ? (
           searchResults.map(product => (
-            <Col key={product.id} sm={6} md={4} lg={3}>
+          <Col key={product.id} sm={6} md={4} lg={3}>
+          <Card className="card-product"></Card>
           <Card key={product.id} style={{ width: '18rem', margin: '10px' }}>
             <Card.Img variant="top" src={"http://127.0.0.1:8000"+product.image} />
             <Card.Body>
