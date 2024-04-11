@@ -36,10 +36,10 @@
   /* 确保按钮也与输入框宽度一致 */
   .payment-button {
     width: 100%;
-    max-width: 400px;
+    max-width: 330px;
     padding: 10px;
     margin-top: 20px;
-    left: 80px;
+    justify-content: center;
   }
   
   .back-button {

@@ -86,10 +86,11 @@ function PaymentPage() {
             maxLength="3"
             required
           />
-        </div>
-        <button type="submit" className="payment-button">
+          <button type="submit" className="payment-button">
           Confirm Payment
         </button>
+        </div>
+    
       </form>
       {showSuccessModal && <SuccessModal onClose={changeOrderStatus} />}
     </div>
