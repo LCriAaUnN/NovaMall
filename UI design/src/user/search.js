@@ -51,9 +51,11 @@ function SearchResultsPage() {
           <Col key={product.id} sm={6} md={4} lg={3}>
           <Card className="card-product" key={product.id} style={{ width: '18rem', height: '25rem', margin: '10px' }}>
             <Card.Img variant="top" src={"http://127.0.0.1:8000"+product.image} className="card-product-img"/>
-            <Card.Body>
-              <Card.Title className="card-product-title">{product.name}</Card.Title>
-              <Card.Text className="card-product-price">Price: ${product.price}</Card.Text> {/* 这里使用Card.Text展示价格 */}
+                <Card.Body className="card-product-body">
+                  <div>
+                  <Card.Title className="card-product-title">{product.name}</Card.Title>
+                  <Card.Text className="card-product-price">Price: ${product.price}</Card.Text> {/* 这里使用Card.Text展示价格 */}
+                  </div>
               <Link to={`/product/${product.id}`}>
                 <Button style={{ backgroundColor: '#080808' }}>View Details</Button>
               </Link>
