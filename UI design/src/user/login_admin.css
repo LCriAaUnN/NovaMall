@@ -10,7 +10,7 @@
   position: absolute;
   top: 10px;
   /* 调整为适合你的 logo 图片的尺寸 */
-  width: 100px; /* 示例宽度，根据需要调整 */
+  width: 150px; /* 示例宽度，根据需要调整 */
   height: auto; /* 高度自动调整以保持图片比例 */
   margin-top: 50px;
   text-align: center;
@@ -31,11 +31,11 @@
   
   .login-container {
     padding: 20px;
-    background-color: rgba(0, 0, 0, 0.847);
-    color: white;
+    background-color: rgb(253, 252, 251);
+    color: rgb(8, 8, 8);
     border-radius: 30px;
     text-align: center;
-    margin-top: 130px;
+    margin-top: 50px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -78,7 +78,7 @@
     border-radius: 20px;
     cursor: pointer;
     margin-right: 10px;
-    width: 100px;
+    width: 90px;
     height: 40px;
   }
 
@@ -123,21 +123,20 @@
 
   .action-buttons {
     display: flex;
-    justify-content: space-between;
+    justify-content: center; /* 更新为居中对齐 */
     align-items: center;
+    width: 100%; /* 确保容器宽度撑满，以便居中 */
   }
   
-  .signup-link .signup {
+  /* .signup-link .signup {
     padding: 8px 16px;
-    background-color: blue;
+    background-color: green;
     color: white;
     border: none;
     border-radius: 20px;
     cursor: pointer;
-    margin-left: 10px; /* 如果需要，调整间距 */
-    width: 90px;
-    height: 40px;
-  }
+    margin-left: 10px; 
+  } */
   
 
   .message-box {
@@ -161,14 +160,5 @@
     border: 2px solid red;
   }
 
-.button-shared {
-  padding: 8px 16px; /* 调整内边距以适应内容和设计 */
-  color: white; /* 文本颜色 */
-  border: none; /* 无边框 */
-  border-radius: 20px; /* 圆角边框 */
-  cursor: pointer; /* 鼠标悬停时的光标形状 */
-  font-size: 16px; /* 字体大小，根据需要调整 */
-  width: auto; /* 宽度自适应内容 */
-  box-sizing: border-box; /* 盒模型 */
-}
+
   

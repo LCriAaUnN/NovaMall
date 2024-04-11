@@ -2,7 +2,7 @@ import './signup.css';
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
-import logoImage from './img/logo.jpg';
+import logoImage from './img/logo.png';
 import api from '../api';
 
 const SignUpForm = ({route = "/user/register/", method = "register"}) => {
@@ -84,10 +84,13 @@ const SignUpForm = ({route = "/user/register/", method = "register"}) => {
             <input type="password" placeholder="Confirm Password" value={confirmedPassword} onChange={handleConfirmedPasswordChange} />
           </div>
           <div className="action-buttons">
-            <button type="button" onClick={handleSignUp} className="signup">Sign Up</button>
-            <Link to="/login">
+          <Link to="/login">
               <button type="button" className="login">Log in</button>
             </Link>
+            <button type="button" onClick={handleSignUp} className="signup">Sign Up</button>
+            {/* <Link to="/login">
+              <button type="button" className="login">Log in</button>
+            </Link> */}
           </div>
         </form>
       </div>

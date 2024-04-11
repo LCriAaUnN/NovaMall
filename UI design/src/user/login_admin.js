@@ -1,9 +1,9 @@
-import './login.css'; 
+import './login_admin.css'; 
 import api from '../api';
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
-import logoImage from './img/logo.jpg';
+import logoImage from './img/logo.png';
 //import LoadingIndicator from "./LoadingIndicator";
 import { ACCESS_TOKEN, REFRESH_TOKEN } from "../constants";
 import Admin from '../admin/admin';
@@ -109,9 +109,9 @@ const AdminLogin = ({ route = "token/" , method = "login"}) => {
           </div>
           <div className="action-buttons">
             <button type="submit" className="login">Log in</button>
-            <Link to="/signup" className="signup-link">
+            {/* <Link to="/signup" className="signup-link">
               <button type="button" className="signup">Sign Up</button>
-            </Link>
+            </Link> */}
           </div>
         </form>
       </div>

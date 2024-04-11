@@ -8,7 +8,7 @@
 
 .name {
     position: absolute;
-    top: -20px;
+    top: 10px;
     /* 调整为适合你的 logo 图片的尺寸 */
     width: 150px; /* 示例宽度，根据需要调整 */
     height: auto; /* 高度自动调整以保持图片比例 */
@@ -25,16 +25,16 @@
       background-color: #FFFFFF;
       background-size: cover;
       background-position: center;
-      background-image: url('./img/bg.jpg');
+      background-image: url('./img/bg10.jpg');
     }
     
     .signup-container {
       padding: 20px;
-      background-color: rgba(0, 0, 0, 0.847);
-      color: white;
+      background-color: rgb(254, 254, 254);
+      color: rgb(12, 12, 12);
       border-radius: 30px;
       text-align: center;
-      margin-top: 130px;
+      margin-top: 100px;
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -69,6 +69,15 @@
       margin-bottom: 10px;
     }
     
+    .signup-container .login {
+      padding: 8px 16px;
+      background-color: green;
+      color: white;
+      border: none;
+      border-radius: 20px;
+      cursor: pointer;
+    }
+
     .signup-container .signup {
       padding: 8px 16px;
       background-color: blue;
