@@ -197,7 +197,7 @@ const navigate = useNavigate();
         <Dropdown.Item href="#" onClick={() => handleDropdownCategoryChange('Electronics')}>
           Electronics
         </Dropdown.Item>
-        <Dropdown.Item href="#" onClick={() => handleDropdownCategoryChange('Clothing')}>
+        <Dropdown.Item href="#" onClick={() => handleDropdownCategoryChange('Clothings')}>
           Clothing
         </Dropdown.Item>
         <Dropdown.Item href="#" onClick={() => handleDropdownCategoryChange('Books')}>
@@ -238,10 +238,10 @@ const navigate = useNavigate();
               <a href="#" onClick={() => handleNavbarCategoryChange('Electronics')}>Electronics</a>
             </li>
             <li>
-              <a href="#" onClick={() => handleNavbarCategoryChange('Clothing')}>Clothing</a>
+              <a href="#" onClick={() => handleNavbarCategoryChange('Clothings')}>Clothings</a>
             </li>
             <li>
-              <a href="#" onClick={() => handleNavbarCategoryChange('Blook')}>Book</a>
+              <a href="#" onClick={() => handleNavbarCategoryChange('Books')}>Books</a>
             </li>
             <li>
               <a href="#" onClick={() => handleNavbarCategoryChange('Accessories')}>Accessories</a>
