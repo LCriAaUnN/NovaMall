@@ -61,7 +61,7 @@ function OrderPage() {
                                 <span>${order.price}</span>
                             </div>
                             </div>
-                            <button onClick={() => viewOrderDetails(order.id)}>View Details</button>
+                            {/* <button onClick={() => viewOrderDetails(order.id)}>View Details</button> */}
                         </div>
                         ))}
 
