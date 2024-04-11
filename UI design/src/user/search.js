@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import api from "../api";
 import { useLocation, useNavigate, Link } from 'react-router-dom';
-import { Button, Card } from 'react-bootstrap';
+import { Container, Row, Col, Card, Button } from 'react-bootstrap';
 
 function SearchResultsPage() {
   const [searchResults, setSearchResults] = useState([]);
@@ -45,22 +45,26 @@ function SearchResultsPage() {
   return (
     <div className="search-results-container">
       <Button variant="secondary" onClick={navigateBack} className="mb-3">Back to Home</Button>
+      <Row>
       {searchResults.length > 0 ? (
-        searchResults.map(product => (
-          <Card key={product.id} style={{ width: '18rem', margin: '10px' }}>
-            <Card.Img variant="top" src={"http://127.0.0.1:8000"+product.image} />
+          searchResults.map(product => (
+          <Col key={product.id} sm={6} md={4} lg={3}>
+          <Card className="card-product" key={product.id} style={{ width: '18rem', height: '25rem', margin: '10px' }}>
+            <Card.Img variant="top" src={"http://127.0.0.1:8000"+product.image} className="card-product-img"/>
             <Card.Body>
-              <Card.Title>{product.name}</Card.Title>
-              <Card.Text>Price: ${product.price}</Card.Text> {/* 这里使用Card.Text展示价格 */}
+              <Card.Title className="card-product-title">{product.name}</Card.Title>
+              <Card.Text className="card-product-price">Price: ${product.price}</Card.Text> {/* 这里使用Card.Text展示价格 */}
               <Link to={`/product/${product.id}`}>
                 <Button style={{ backgroundColor: '#080808' }}>View Details</Button>
               </Link>
             </Card.Body>
-          </Card>
+              </Card>
+              </Col>
         ))
       ) : (
         noResultsContent
-      )}
+        )}
+        </Row>
     </div>
   );
 }
