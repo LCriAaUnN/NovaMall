@@ -158,10 +158,10 @@ function Products({ products, onEdit, onRemove }) {
             {products.map(product => (
               <tr key={product.id}>
                 <td>{product.id}</td>
-                <td>{product.title}</td>
-                <td>{product.category}</td>
+                <td>{product.name}</td>
+                <td>{product.catagory}</td>
                 <td>
-                  <button className="edit-btn" onClick={() => onEdit(product.id)}>Edit</button>
+                  {/* <button className="edit-btn" onClick={() => onEdit(product.id)}>Edit</button> */}
                   <button className="remove-btn" onClick={() => onRemove(product.id)}>Remove</button>
                 </td>
               </tr>
