@@ -13,7 +13,7 @@ CSCI3100 course project
 *in server end*
 1. `mysql -uroot -p`
 2. `create database NovaMall charset=utf8;`
-3. `mysql -uroot -p NovaMall < NovaMall_DB.sql`
+3. `mysql -uroot -p NovaMall < NovaMall.sql`
 
 ### run server
 1. `python3 NovaMall/manage.py runserver`
