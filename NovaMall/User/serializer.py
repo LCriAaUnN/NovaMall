@@ -2,6 +2,7 @@ from django.contrib.auth.models import User
 from rest_framework import serializers
 #from User.models import User
 
+# The UserSerializer class is used to serialize the User model.
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = User

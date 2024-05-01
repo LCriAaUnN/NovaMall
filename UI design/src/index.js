@@ -44,7 +44,10 @@ const user = {
   name: "User"
 };
 
+// The main App component
 function App(props) {
+    // The Routes component is used to define the different routes of the application
+    // BrowserRouter is used to enable URL routing in the application
     return (
       <BrowserRouter>
         <Routes>
@@ -73,7 +76,9 @@ function App(props) {
     );
   }
 
+// The NoMatch function is a component that is displayed when the user navigates to a route that doesn't exist
 function NoMatch() {
+  // useLocation is a hook from react-router-dom that returns the current location object
   let location = useLocation();
   return (
     <div>
@@ -84,6 +89,7 @@ function NoMatch() {
     </div>
   );
 }
-  
+// The root constant is the root DOM node that the React application will be attached to
 const root = ReactDOM.createRoot(document.querySelector('#app'));
+// The render method is used to render the App component into the root DOM node
 root.render(<App />);
