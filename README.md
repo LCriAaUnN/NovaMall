@@ -124,34 +124,44 @@ This is an example of how to list things you need to use the software and how to
   ```sh
   npm install npm@latest -g
   ```
-
+* libraries 
+  ```sh
+  pip install -r requirement.txt
+  ```
+* mysql-client
+  ```sh
+  brew install mysql pkg-config
+  pip install mysqlclient
+  ```
 ### Installation
 
-1. Get a free API Key at [https://example.com](https://example.com)
-2. Clone the repo
+1. Clone the repo
    ```sh
    git clone https://github.com/LCriAaUnN/NovaMall.git
    ```
-3. Install NPM packages
-   ```sh
-   npm install
-   ```
-4. Enter your API in `config.js`
-   ```js
-   const API_KEY = 'ENTER YOUR API';
-   ```
-
+2. Database setting
+    ```sh
+    mysql -uroot -p
+    create database NovaMall charset=utf8;
+    mysql -uroot -p NovaMall < NovaMall/NovaMall.sql
+    ```
+3. Install npm
+    ```sh
+    npm install
+    ```
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
 
 <!-- USAGE EXAMPLES -->
 ## Usage
-
-Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
-
-_For more examples, please refer to the [Documentation](https://example.com)_
-
+1. Run server
+    ```sh
+    python3 NovaMall/manage.py runserver
+    npm start
+    ```
+2. Administrator Login</br>
+  *See Doc Administrator.txt for account name & pwd*
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 

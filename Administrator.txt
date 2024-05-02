@@ -1,0 +1,3 @@
+Login as Administrator
+- Name: NovaMall
+- Pwd: qwepoi1234
