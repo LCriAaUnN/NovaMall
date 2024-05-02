@@ -29,7 +29,7 @@
 <br />
 <div align="center">
   <a href="https://github.com/LCriAaUnN/NovaMall">
-    <img src="./logo.png" alt="Logo" width="80" height="80">
+    <img src="./logo.png" alt="Logo" width="160" height="160">
   </a>
 
 <h3 align="center">NovaMall</h3>
@@ -80,9 +80,22 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-[![Product Name Screen Shot][product-screenshot]](https://example.com)
+[![Product Name Screen Shot][product-screenshot]]
 
-Here's a blank template to get started: To avoid retyping too much info. Do a search and replace with your text editor for the following: `LCriAaUnN`, `NovaMall`, `twitter_handle`, `linkedin_username`, `email_client`, `email`, `NovaMall`, `project_description`
+<h2>Key Features:</h2>
+<ul>
+  <li><strong>User Authentication and Profiles:</strong> NovaMall allows users to create personalized accounts, enabling them to manage their shopping activities efficiently. User profiles store essential information such as order history, preferences, and shipping details.</li>
+  
+  <li><strong>Product Catalog:</strong> The platform boasts an extensive product catalog featuring items ranging from electronics and fashion to home essentials and more. Users can browse through different categories and explore detailed product descriptions along with images.</li>
+  
+  <li><strong>Search and Filtering:</strong> NovaMall simplifies the shopping process with robust search and filtering functionalities. Users can quickly find specific products by entering keywords or utilize advanced filters to narrow down their options based on price, brand, and other parameters.</li>
+  
+  <li><strong>Shopping Cart and Checkout:</strong> Adding items to the cart is effortless, allowing users to collect desired products for purchase. The checkout process is streamlined, with secure payment gateways ensuring a safe and hassle-free transaction experience.</li>
+  
+  <li><strong>Order Tracking:</strong> Once an order is placed, users can track its status in real-time through the NovaMall platform. From processing to shipping and delivery, comprehensive order tracking enhances transparency and customer satisfaction.</li>
+  
+  <li><strong>Responsive Design:</strong> With a responsive design, NovaMall ensures a seamless browsing experience across various devices, including desktops, tablets, and smartphones. This flexibility allows users to shop anytime, anywhere, without compromising usability.</li>
+</ul>
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -90,14 +103,9 @@ Here's a blank template to get started: To avoid retyping too much info. Do a se
 
 ### Built With
 
-* [![Next][Next.js]][Next-url]
 * [![React][React.js]][React-url]
-* [![Vue][Vue.js]][Vue-url]
-* [![Angular][Angular.io]][Angular-url]
-* [![Svelte][Svelte.dev]][Svelte-url]
-* [![Laravel][Laravel.com]][Laravel-url]
-* [![Bootstrap][Bootstrap.com]][Bootstrap-url]
-* [![JQuery][JQuery.com]][JQuery-url]
+* [![Django][Django.com]][Django-url]
+* [![Mysql][Mysql.com]][Mysql-url]
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -184,7 +192,7 @@ Don't forget to give the project a star! Thanks again!
 <!-- CONTACT -->
 ## Contact
 
-Your Name Cameron - crliu002@gmail.com
+Cameron - crliu002@gmail.com
 
 Project Link: [https://github.com/LCriAaUnN/NovaMall](https://github.com/LCriAaUnN/NovaMall)
 
@@ -194,10 +202,10 @@ Project Link: [https://github.com/LCriAaUnN/NovaMall](https://github.com/LCriAaU
 
 <!-- ACKNOWLEDGMENTS -->
 ## Acknowledgments
+The NovaMall references the following projects.
 
-* []()
-* []()
-* []()
+* [Django-React-Full-Stack-App](https://github.com/techwithtim/Django-React-Full-Stack-App)
+* [Best-README-Template](https://github.com/othneildrew/Best-README-Template)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -213,7 +221,7 @@ Project Link: [https://github.com/LCriAaUnN/NovaMall](https://github.com/LCriAaU
 [stars-url]: https://github.com/LCriAaUnN/NovaMall/stargazers
 [issues-shield]: https://img.shields.io/github/issues/LCriAaUnN/NovaMall.svg?style=for-the-badge
 [issues-url]: https://github.com/LCriAaUnN/NovaMall/issues
-[product-screenshot]: images/screenshot.png
+[product-screenshot]: ./screenshot.png
 [Next.js]: https://img.shields.io/badge/next.js-000000?style=for-the-badge&logo=nextdotjs&logoColor=white
 [Next-url]: https://nextjs.org/
 [React.js]: https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB
@@ -230,3 +238,7 @@ Project Link: [https://github.com/LCriAaUnN/NovaMall](https://github.com/LCriAaU
 [Bootstrap-url]: https://getbootstrap.com
 [JQuery.com]: https://img.shields.io/badge/jQuery-0769AD?style=for-the-badge&logo=jquery&logoColor=white
 [JQuery-url]: https://jquery.com 
+[Mysql-url]:https://www.mysql.com/
+[Django-url]:https://www.djangoproject.com/
+[Mysql.com]: https://img.shields.io/badge/Mysql-563D7C?style=for-the-badge&logo=Mysql&logoColor=white
+[Django.com]: https://img.shields.io/badge/Django-000000?style=for-the-badge&logo=Django&logoColor=white
