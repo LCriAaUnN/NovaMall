@@ -82,7 +82,7 @@
 
 ![Product Name Screen Shot][product-screenshot]
 
-<h2>Key Features:</h2>
+<h3>Key Features:</h3>
 <ul>
   <li><strong>User Authentication and Profiles:</strong> NovaMall allows users to create personalized accounts, enabling them to manage their shopping activities efficiently. User profiles store essential information such as order history, preferences, and shipping details.</li>
   
