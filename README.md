@@ -158,6 +158,7 @@ This is an example of how to list things you need to use the software and how to
 1. Run server
     ```sh
     python3 NovaMall/manage.py runserver
+    cd UI\ design/
     npm start
     ```
 2. Administrator Login</br>
