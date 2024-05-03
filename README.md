@@ -126,7 +126,7 @@ This is an example of how to list things you need to use the software and how to
   ```
 * libraries 
   ```sh
-  pip install -r requirement.txt
+  pip install -r requirements.txt
   ```
 * mysql-client
   ```sh
@@ -147,6 +147,7 @@ This is an example of how to list things you need to use the software and how to
     ```
 3. Install npm
     ```sh
+    cd UI\ design/
     npm install
     ```
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
@@ -158,6 +159,7 @@ This is an example of how to list things you need to use the software and how to
 1. Run server
     ```sh
     python3 NovaMall/manage.py runserver
+    cd UI\ design/
     npm start
     ```
 2. Administrator Login</br>
