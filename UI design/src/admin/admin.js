@@ -5,10 +5,7 @@ import './admin.css';
 import logoImage from './img/logo-1.jpg';
 import api from "../api";
 
-// Mock data import
-//  import { products } from './data';
-
-
+// Admin component
 function Admin() {
   const navigate = useNavigate();
   const location = useLocation();
@@ -25,6 +22,7 @@ function Admin() {
     getProducts();
   }, []);
 
+  // Function to get users
   const getUsers = () => {
     api
       .get('/user/list/')
@@ -45,6 +43,7 @@ function Admin() {
       .catch((error) => alert(error));
   };
 
+  // Function to get products
   const getProducts = () => {
     api.get('/user/list_products/')
       .then((res) => res.data) 
@@ -65,13 +64,13 @@ function Admin() {
   };
 
   const handleLogout = () => {
-    // 显示确认对话框
+    // pop up a confirmation dialog
     const confirmLogout = window.confirm("Are you sure you want to logout?");
     if (confirmLogout) {
-      // 用户确认登出，导航到登出页面
+      // if user selects “OK”, then navigate to the login page
       navigate('/logout');
     }
-    // 如果用户选择“取消”，则不做任何操作，留在当前页面
+    // if user selects “Cancel”, then do nothing
   };
 
   return (
@@ -107,6 +106,7 @@ function Admin() {
   );
 }
 
+// Users and Products components
 function Users({ users, onRemove }) {
   return (
     <div className="user-section">

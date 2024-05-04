@@ -16,6 +16,7 @@ function OrderPage() {
         getOrders();
     }, [])
 
+    // function to get orders
     const getOrders = () => {
         api
             .get("/order/")
@@ -23,11 +24,7 @@ function OrderPage() {
             .then((data)=> {setOrders(data); console.log(data)})
             .catch((err) => alert(err));
     }
-    // 查看订单详情的示例函数
-    const viewOrderDetails = (id) => {
-        alert(`查看订单 ${id} 的详情`);
-        // 实际应用中，这里可以是打开一个模态框，或跳转到订单详情页面
-    };
+
 
     return (
         <>
@@ -61,7 +58,6 @@ function OrderPage() {
                                 <span>${order.price}</span>
                             </div>
                             </div>
-                            {/* <button onClick={() => viewOrderDetails(order.id)}>View Details</button> */}
                         </div>
                         ))}
 

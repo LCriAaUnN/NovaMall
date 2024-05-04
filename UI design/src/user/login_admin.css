@@ -9,9 +9,8 @@
 .name {
   position: absolute;
   top: 10px;
-  /* 调整为适合你的 logo 图片的尺寸 */
-  width: 150px; /* 示例宽度，根据需要调整 */
-  height: auto; /* 高度自动调整以保持图片比例 */
+  width: 150px; 
+  height: auto;
   margin-top: 50px;
   text-align: center;
 }
@@ -21,11 +20,9 @@
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    /*background-image: url('img/bg.jpg');*/
     background-color: #FFFFFF;
     background-size: cover;
     background-position: center;
-    /* background-image: url('./img/bg.jpg'); */
     background-image: url('./img/bg10.jpg');
   }
   
@@ -123,20 +120,10 @@
 
   .action-buttons {
     display: flex;
-    justify-content: center; /* 更新为居中对齐 */
+    justify-content: center; 
     align-items: center;
-    width: 100%; /* 确保容器宽度撑满，以便居中 */
+    width: 100%; 
   }
-  
-  /* .signup-link .signup {
-    padding: 8px 16px;
-    background-color: green;
-    color: white;
-    border: none;
-    border-radius: 20px;
-    cursor: pointer;
-    margin-left: 10px; 
-  } */
   
 
   .message-box {

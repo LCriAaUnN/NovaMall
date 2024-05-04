@@ -43,25 +43,42 @@ const LoginForm = ({ route = "token/" , method = "login"}) => {
   const handleFormSubmit = async (event) => {
     setLoading(true)
     event.preventDefault();
+    
+    // check if the username and password are empty
+    if (!username) {
+      displayMessage('failure', 'Please input your username.');
+      setLoading(false);  
+      return;  
+    }
+    
+    // check if the password is empty
+    if (!password) {
+        displayMessage('failure', 'Please input your password.');
+        setLoading(false); 
+        return; 
+    }
 
+    // check if the username is NovaMall
+    if(username === "NovaMall") {
+        displayMessage('failure', 'This username is not allowed to login. Please try another one.');
+        setLoading(false);
+        return;
+    }
 
-    if(username !== "NovaMall") {
-      try {
+    // use the api to send the username and password to the server
+    try {
         console.log("Route:", route);
-        const res = await api.post(route, { username, password })
+        const res = await api.post(route, { username, password });
         localStorage.setItem(ACCESS_TOKEN, res.data.access);
         localStorage.setItem(REFRESH_TOKEN, res.data.refresh);
-        navigate("/home")
-      } catch (error) {
+        navigate("/home"); // if login is successful, navigate to home page
+    } catch (error) { // if login is unsuccessful, display error message
         console.log("Error:", error);
         displayMessage('failure', 'Login failed. Please check your Username or Password and try again.');
-      }
+    } finally {
+        setLoading(false); 
     }
-    else {
-      displayMessage('failure', 'Login failed. Please check your Username or Password and try again.');
-    }
-      
-  
+    
   };
 
   return (
@@ -110,9 +127,6 @@ const LoginForm = ({ route = "token/" , method = "login"}) => {
               <button type="button" className="signup">Sign Up</button>
             </Link>
             <button type="submit" className="login"> Log in </button>
-            {/* <Link to="/signup" className="signup-link">
-              <button type="button" className="signup">Sign Up</button>
-            </Link> */}
           </div>
         </form>
       </div>

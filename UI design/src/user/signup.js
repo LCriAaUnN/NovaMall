@@ -12,6 +12,7 @@ const SignUpForm = ({route = "/user/register/", method = "register"}) => {
   const [confirmedPassword, setConfirmedPassword] = useState('');
   const navigate = useNavigate();
 
+  // functions to get username, email, password, and confirmed password
   const handleUsernameChange = (event) => {
     setUsername(event.target.value);
   };
@@ -28,6 +29,7 @@ const SignUpForm = ({route = "/user/register/", method = "register"}) => {
     setConfirmedPassword(event.target.value);
   };
 
+  // function to display message
   const showMessage = (message, isSuccess) => {
     const messageBox = document.createElement("div");
     messageBox.textContent = message;
@@ -39,24 +41,23 @@ const SignUpForm = ({route = "/user/register/", method = "register"}) => {
     }, 1000);
   };
 
+  // function to handle sign up
   const handleSignUp = async (event) => {
     event.preventDefault();
 
-   
+    // check if the password and confirmed password are the same
     if (password === confirmedPassword && password) {
       try {
         console.log("Route:", route);
         const rest = await api.post(route, { username, email, password })
         showMessage("Registration Successful!", true);
-        setTimeout(() => navigate('/login'), 1000); // 假设注册成功后1秒钟跳转到登录页面\
+        setTimeout(() => navigate('/login'), 1000); // if registration is successful, navigate to login page after 1 second
       }
-      catch (error) {
+      catch (error) { // if registration is unsuccessful, display error message
         console.error(error);
-        showMessage("Registration  failed. Please try again.", false);
+        showMessage("Registration failed. Please input correct username and email.", false);
       }
-      
-      
-    } else {
+    } else { // if password and confirmed password are not the same, display error message
       showMessage("Password is invalid or not confirmed. Please try again.", false);
     }
   };
@@ -88,9 +89,6 @@ const SignUpForm = ({route = "/user/register/", method = "register"}) => {
               <button type="button" className="login">Log in</button>
             </Link>
             <button type="button" onClick={handleSignUp} className="signup">Sign Up</button>
-            {/* <Link to="/login">
-              <button type="button" className="login">Log in</button>
-            </Link> */}
           </div>
         </form>
       </div>

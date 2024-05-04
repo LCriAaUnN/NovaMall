@@ -1,17 +1,8 @@
-/*.name {
-  position: absolute;
-  top: 30px;
-  font-size: 60px;
-  margin-top: 50px;
-  text-align: center;
-}*/
-
 .name {
   position: absolute;
   top: 10px;
-  /* 调整为适合你的 logo 图片的尺寸 */
-  width: 100px; /* 示例宽度，根据需要调整 */
-  height: auto; /* 高度自动调整以保持图片比例 */
+  width: 100px; 
+  height: auto;
   margin-top: 50px;
   text-align: center;
 }
@@ -21,11 +12,9 @@
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    /*background-image: url('img/bg.jpg');*/
     background-color: #FFFFFF;
     background-size: cover;
     background-position: center;
-    /* background-image: url('./img/bg.jpg'); */
     background-image: url('./img/bg10.jpg');
   }
   
@@ -134,7 +123,7 @@
     border: none;
     border-radius: 20px;
     cursor: pointer;
-    margin-left: 10px; /* 如果需要，调整间距 */
+    margin-left: 10px; 
     width: 90px;
     height: 40px;
   }
@@ -162,13 +151,13 @@
   }
 
 .button-shared {
-  padding: 8px 16px; /* 调整内边距以适应内容和设计 */
-  color: white; /* 文本颜色 */
-  border: none; /* 无边框 */
-  border-radius: 20px; /* 圆角边框 */
-  cursor: pointer; /* 鼠标悬停时的光标形状 */
-  font-size: 16px; /* 字体大小，根据需要调整 */
-  width: auto; /* 宽度自适应内容 */
-  box-sizing: border-box; /* 盒模型 */
+  padding: 8px 16px; 
+  color: white; 
+  border: none; 
+  border-radius: 20px; 
+  cursor: pointer; 
+  font-size: 16px;
+  width: auto; 
+  box-sizing: border-box; 
 }
   

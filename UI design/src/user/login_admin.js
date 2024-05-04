@@ -18,24 +18,25 @@ const AdminLogin = ({ route = "token/" , method = "login"}) => {
   const [messageType, setMessageType] = useState(''); // 'success' or 'failure'
   const navigate = useNavigate();
 
-  // const handleUserTypeChange = (event) => {
-  //   setUserType(event.target.value);
-  // };
+  // function to handle user type change
   const handleUserTypeChange = (event) => {
     setUserType(event.target.value);
     if (event.target.value === 'user') {
-      navigate('/login'); // 添加这行代码以在选择user时导航
+      navigate('/login'); 
     }
   };
 
+  // function to get username
   const handleUsernameChange = (event) => {
     setUsername(event.target.value);
   };
 
+  // function to get password
   const handlePasswordChange = (event) => {
     setPassword(event.target.value);
   };
 
+  // function to display message
   const displayMessage = (type, content) => {
     setMessageType(type);
     setMessageContent(content);
@@ -43,23 +44,25 @@ const AdminLogin = ({ route = "token/" , method = "login"}) => {
     setTimeout(() => setShowMessage(false), 1000); // Hide the message box after 5 seconds
   };
 
+  // function to handle form submit
   const handleFormSubmit = async (event) => {
     setLoading(true)
     event.preventDefault();
 
+    // check if the username is NovaMall and password is correct
     if(username === "NovaMall") {
       try {
         console.log("Route:", route);
         const res = await api.post(route, { username, password })
         localStorage.setItem(ACCESS_TOKEN, res.data.access);
         localStorage.setItem(REFRESH_TOKEN, res.data.refresh);
-        navigate("/admin")
-      } catch (error) {
-        console.log("Error:", error);
+        navigate("/admin") // if login is successful, navigate to admin page
+      } catch (error) { // if login is unsuccessful, display error message
+        console.log("Error:", error); 
         displayMessage('failure', 'Login failed. Please check your Username or Password and try again.');
       }
     }
-    else {
+    else { // if username is not NovaMall, display error message
       displayMessage('failure', 'Login failed. Please check your Username or Password and try again.');
     }
       
@@ -109,9 +112,6 @@ const AdminLogin = ({ route = "token/" , method = "login"}) => {
           </div>
           <div className="action-buttons">
             <button type="submit" className="login">Log in</button>
-            {/* <Link to="/signup" className="signup-link">
-              <button type="button" className="signup">Sign Up</button>
-            </Link> */}
           </div>
         </form>
       </div>

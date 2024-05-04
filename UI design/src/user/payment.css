@@ -22,18 +22,17 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    min-height: 100vh; /* 使用视口高度使其在屏幕上垂直居中 */
-    margin: 0 auto; /* 水平居中 */
+    min-height: 100vh; 
+    margin: 0 auto; 
   }
   
   .form-group input {
-    width: 100%; /* 让输入框宽度为100% */
-    max-width: 400px; /* 最大宽度为400px，你可以根据需要调整 */
-    padding: 10px; /* 增加一些内边距使得输入更舒适 */
-    margin-top: 10px; /* 如果需要，可以调整上边距 */
+    width: 100%; 
+    max-width: 400px;
+    padding: 10px;
+    margin-top: 10px; 
   }
   
-  /* 确保按钮也与输入框宽度一致 */
   .payment-button {
     width: 100%;
     max-width: 330px;

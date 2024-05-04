@@ -7,7 +7,7 @@ import { Carousel } from 'react-bootstrap';
 // import { products } from './data.js'; 
 import './ProductDetail.css'; 
 
-
+// ProductDetail component
 function ProductDetail() {
     let { id } = useParams();
     // const [wishlist, setWishlist] = useState(false);
@@ -20,6 +20,7 @@ function ProductDetail() {
       getProduct();
     }, [])
 
+    // Get product by id
     const getProduct = () => {
       api
         .get(`/product/${id}/`)
@@ -28,7 +29,7 @@ function ProductDetail() {
         .catch((err) => alert(err));
     }
 
-    // 显示 "Added to cart" 的信息框
+    // Add to cart
     const handleAddToCart = () => {
       api
         .post(`/cart/add/${id}/`)
@@ -46,9 +47,9 @@ function ProductDetail() {
 
   return (
     <div className="product-detail-container">
-      {/* 商品图片 */}
+      {/* product pictures */}
       <img src={"http://127.0.0.1:8000"+product.image} alt="Product" className="product-image" />
-       {/* 商品信息 */}
+       {/* product information */}
       <div className="product-info">
         <h2 className="product-title">{product.name}</h2>
         <p className="product-price">HKD ${product.price}</p>
@@ -57,20 +58,14 @@ function ProductDetail() {
         <p className="product-description">Description: {product.description}</p>
         <p className="product-stock">In stock: {product.count}</p>
       
-        {/* Wishlist 和 Shopping Cart 按钮位置 */}
+        {/* Wishlist & Shopping Cart button */}
         <div className="product-actions">
-          {/* <span
-            className={`button-wishlist ${wishlist ? 'active' : ''}`}
-            onClick={handleWishlistToggle}
-          >
-            ♥
-          </span> */}
           <button className="button-cart" onClick={handleAddToCart}>
             ADD TO CART
           </button>
         </div>
     </div>
-      {/* 信息框 */}
+      {/* alert message */}
       {cartMessage && <div className={`alert-box ${cartMessage ? 'active' : ''}`}>{cartMessage}</div>}
     </div>
   );
