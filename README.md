@@ -138,6 +138,7 @@ This is an example of how to list things you need to use the software and how to
 1. Clone the repo
    ```sh
    git clone https://github.com/LCriAaUnN/NovaMall.git
+   cd NovaMall
    ```
 2. Import demo database
     ```sh
