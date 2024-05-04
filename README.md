@@ -138,8 +138,9 @@ This is an example of how to list things you need to use the software and how to
 1. Clone the repo
    ```sh
    git clone https://github.com/LCriAaUnN/NovaMall.git
+   cd NovaMall
    ```
-2. Database setting
+2. Import demo database
     ```sh
     mysql -uroot -p
     create database NovaMall charset=utf8;
@@ -163,7 +164,11 @@ This is an example of how to list things you need to use the software and how to
     npm start
     ```
 2. Administrator Login</br>
-  *See Doc Administrator.txt for account name & pwd*
+    ```sh
+    Username: NovaMall
+    Password: qwepoi1234
+    ```
+    Note: If you are running the project for the first time you must log into the administrator account once to activate the system.
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
