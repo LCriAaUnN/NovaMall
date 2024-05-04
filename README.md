@@ -167,7 +167,7 @@ This is an example of how to list things you need to use the software and how to
     Username: NovaMall
     Password: qwepoi1234
     ```
-    Note: If you are running the program for the first time you must log into the administrator account once to activate the system.
+    Note: If you are running the project for the first time you must log into the administrator account once to activate the system.
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
